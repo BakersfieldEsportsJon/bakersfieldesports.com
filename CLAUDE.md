@@ -14,29 +14,25 @@ Bakersfield eSports Center website - a full-stack PHP/JavaScript application for
 
 ### CSS Compilation
 ```bash
-# Build optimized CSS from main.css (combines @imports, minifies)
-npm run build:css
+# CSS minification (using clean-css-cli)
+npm run minify-css
 
-# Output: css/optimized.min.css (14.92 KB from ~22.8 KB source)
+# CSS linting and auto-fix
+npm run lint:css
 ```
+
+**Note:** The `npm run build:css` command is defined in package.json but the build-css.js script does not exist. CSS optimization currently uses clean-css-cli for minification.
 
 ### Image Optimization
 ```bash
-# Convert images to WebP/AVIF, generate multiple sizes
-npm run optimize:images
+# Convert images to WebP (PHP script)
+php scripts/convert-images-to-webp.php
 
-# Or specify directory:
-node optimize-images.js images/gallery/
+# Alternative Node.js script (if available)
+node scripts/convert-images.js
 ```
 
-### Discord Bot (Event Synchronization)
-```bash
-# Run the Discord bot (syncs events to Discord server)
-cd DiscordEventBot
-node bot.js
-
-# Bot runs continuously, syncs every 30 minutes
-```
+**Note:** The `npm run optimize:images` command references a non-existent optimize-images.js file. Use the PHP script in scripts/ directory instead.
 
 ### Database Migrations
 ```bash
@@ -156,36 +152,70 @@ requireAdmin(); // Dies if not authenticated
 2. **Start.gg Tournaments** - Database-driven (auto-synced)
 
 **Display pages:**
-- `events/index.php` - Local events only (original)
-- `events/index_with_startgg.php` - Both sources combined (current)
+- `events/index.php` - Current events page with Start.gg integration
+- `events/index_with_startgg.php` - Alternative version
+- Multiple backup files exist (`.backup-*` extensions)
 
 **Admin panels:**
 - `events/admin/` - Local events CRUD
 - `admin/startgg/` - Tournament sync management
 
+### API & Caching Architecture
+
+**File-based caching pattern:**
+All external API integrations use JSON file caching to reduce API calls and improve performance:
+
+```php
+// Standard caching pattern
+$CACHE_FILE = __DIR__ . '/../cache/resource-name.json';
+$CACHE_MAX_AGE = 86400; // 24 hours
+
+// Check cache validity
+if (file_exists($CACHE_FILE) && (time() - filemtime($CACHE_FILE)) < $CACHE_MAX_AGE) {
+    // Return cached data
+} else {
+    // Fetch fresh data, update cache
+}
+```
+
+**Cache locations:**
+- `cache/ggleap-stats.json` - GGLeap gaming statistics
+- Database caching for Start.gg tournaments (not file-based)
+
+**Manual cache refresh endpoints:**
+- `api/update-ggleap-stats.php` - Force GGLeap stats refresh
+- `api/update-startgg-events.php` - Force Start.gg events refresh
+- `api/update-top-games.php` - Update popular games list
+
 ### CSS Architecture
 
-**No SASS/SCSS** - uses CSS @import system:
+**No SASS/SCSS** - uses modular CSS with direct imports:
 ```css
-/* main.css - master file */
-@import 'core.css';       /* Variables, base styles */
-@import 'components.css'; /* UI components */
-@import 'layout.css';     /* Layout utilities */
-@import 'custom.css';     /* Site-specific */
+/* CSS files in css/ directory */
+core.css        /* Variables, base styles */
+components.css  /* UI components */
+layout.css      /* Layout utilities */
+custom.css      /* Site-specific */
 ```
 
 **Build process:**
-1. Reads `main.css`
-2. Recursively resolves all `@import` statements
-3. Combines into single file
-4. Minifies (removes comments/whitespace)
-5. Outputs `css/optimized.min.css`
+```bash
+# Minify CSS files
+npm run minify-css
+
+# Lint and auto-fix CSS
+npm run lint:css
+```
 
 **When editing CSS:**
 - Edit source files in `css/`
-- Run `npm run build:css`
-- **Never edit `optimized.min.css` directly**
-- HTML pages load the optimized version
+- Run `npm run minify-css` to generate minified output
+- Use `npm run lint:css` to check formatting (Stylelint)
+- Check `STYLEGUIDE.md` for brand guidelines
+
+**Output:** Minified files in `css/min/`
+
+**Note:** The build system does not use @import combining. Each CSS file is standalone.
 
 ---
 
@@ -208,28 +238,42 @@ $client = new StartGGClient($apiToken);
 // Token retrieved from encrypted database storage
 ```
 
-### Discord Bot Integration
+### GGLeap API Integration
 
-**Purpose:** Auto-sync website events to Discord scheduled events
+**Purpose:** Display live gaming statistics from GGLeap management system
+
+**API Endpoints:**
+- `api/ggleap-stats.php` - Cached stats API (24-hour cache)
+- `api/update-ggleap-stats.php` - Manual cache update endpoint
+- `api/update-ggleap-stats-simple.php` - Simplified update script
 
 **Configuration:**
 ```env
-DISCORD_TOKEN=your_token_here
-GUILD_ID=your_server_id
-EVENTS_JSON_URL=https://bakersfieldesports.com/events/data/events.json
+# Add to .env file (if using live GGLeap API)
+GGLEAP_API_KEY=your_api_key_here
+GGLEAP_CENTER_ID=your_center_id
+GGLEAP_API_URL=https://api.ggleap.com/v1/
 ```
 
-**Sync process:**
-1. Fetches `events.json` every 30 minutes
-2. Compares with existing Discord events
-3. Creates/updates/deletes as needed
-4. Logs all operations to `logs/bot.log`
+**Cache system:**
+- Stats cached in `cache/ggleap-stats.json`
+- Auto-refreshes daily (86400 seconds)
+- Fallback values used if API unavailable
+- Manual updates supported for non-API setups
 
-**Running:**
-```bash
-cd DiscordEventBot
-node bot.js  # Runs indefinitely
+**Setup guide:** See `GGLEAP_API_SETUP.md` for full integration instructions.
+
+### Discord Integration
+
+**Configuration:**
+```env
+DISCORD_TOKEN=your_discord_bot_token_here
+DISCORD_WEBHOOK_URL=https://discord.com/api/webhooks/YOUR_ID/YOUR_TOKEN
 ```
+
+**Used for:**
+- Party booking notifications (via webhook in rates-parties/)
+- Event announcements (manual or via future bot integration)
 
 ### Security Components
 
@@ -336,9 +380,12 @@ try {
 */30 * * * * /usr/bin/php /path/to/admin/startgg/cron/sync_tournaments.php >> /path/to/logs/sync.log 2>&1
 ```
 
-**Discord bot sync:**
-- Handled internally by `node-cron` in bot.js
-- No system cron needed if bot runs continuously
+**GGLeap stats update (daily):**
+```bash
+0 2 * * * /usr/bin/php /path/to/api/update-ggleap-stats.php >> /path/to/logs/ggleap.log 2>&1
+```
+
+**Note:** GGLeap stats auto-update when cache expires (24 hours), so cron is optional.
 
 ---
 
@@ -375,14 +422,22 @@ try {
 - `includes/startgg_tournaments_display.php` - Tournament cards
 
 ### Frontend Assets
-- `css/optimized.min.css` - Compiled CSS (generated, don't edit)
-- `css/main.css` - CSS entry point (edit this)
+- `css/*.css` - Source CSS files (edit these)
+- `css/min/styles.min.css` - Minified output (generated, don't edit)
 - `js/main.js` - JavaScript entry point
 - `js/modules/` - Modular JS components
+- `events/js/tournament-modal.js` - Tournament modal functionality
+
+### API Endpoints
+- `api/ggleap-stats.php` - GGLeap statistics (cached)
+- `api/top-games.php` - Popular games listing
+- `api/tournament-details.php` - Start.gg tournament details
+- `api/startgg-events.php` - Start.gg events feed
+- `api/update-*.php` - Manual cache update scripts
 
 ### External Services
-- `DiscordEventBot/` - Discord bot (standalone Node.js app)
-- `rates-parties/` - Party booking with Stripe
+- `rates-parties/` - Party booking with Stripe integration
+- Discord webhooks - Party booking notifications
 
 ---
 
@@ -410,7 +465,7 @@ A complete OAuth + Stripe payment system was built but archived due to Start.gg 
 - Web root: `C:\xampp\htdocs\bakersfield`
 - Database: MySQL/MariaDB on localhost
 - PHP version: 7.4+
-- Document root should point to `public_html/` for production
+- Node.js version: 20.x (specified in package.json)
 
 ### Local vs Production
 - Local: `http://127.0.0.1/bakersfield/` or `http://localhost/bakersfield/`
@@ -418,14 +473,18 @@ A complete OAuth + Stripe payment system was built but archived due to Start.gg 
 - Environment auto-detected based on hostname
 - Use `.env` to set explicit `ENVIRONMENT=local` or `ENVIRONMENT=production`
 
-### Multiple Directory Structures
-This repository contains multiple snapshots/versions:
-- `public_html/` - Main website (current version)
-- `bakersfieldesports.com/` - Alternative/older version
-- `test.bakersfieldesports.com/` - Test environment
-- Various backup directories with dates
+### Directory Structure
+The repository is organized as follows:
+- Root directory contains the active website files
+- `admin/` - Admin panel and authentication
+- `events/` - Event management system
+- `includes/` - Shared PHP components and libraries
+- `api/` - RESTful API endpoints
+- `css/`, `js/` - Frontend assets
+- `scripts/` - Build and utility scripts
+- `archive/` - Archived code (OAuth system, etc.)
 
-**Work in `public_html/` for active development.**
+**Note:** References to `public_html/` or multiple directory structures in older documentation may not apply to current setup.
 
 ---
 
@@ -447,8 +506,8 @@ This repository contains multiple snapshots/versions:
 
 3. **CSS Changes:**
    - Edit source files in `css/`
-   - Run `npm run build:css`
-   - Check `optimized.min.css` was regenerated
+   - Run `npm run minify-css` to regenerate minified output
+   - Run `npm run lint:css` to check formatting
    - Clear browser cache
    - Test mobile viewport
 
@@ -471,8 +530,9 @@ When deploying to production:
 
 2. **Build Assets:**
    ```bash
-   npm run build:css
-   npm run optimize:images
+   npm run minify-css
+   npm run lint:css
+   php scripts/convert-images-to-webp.php  # Image optimization
    ```
 
 3. **Security:**
@@ -483,7 +543,7 @@ When deploying to production:
 
 4. **Cron Jobs:**
    - Set up Start.gg sync: `*/30 * * * * php admin/startgg/cron/sync_tournaments.php`
-   - Configure Discord bot to run as service (systemd, PM2, or screen)
+   - Optional GGLeap stats update: `0 2 * * * php api/update-ggleap-stats.php`
 
 5. **Testing:**
    - Verify Start.gg tournaments display
@@ -494,16 +554,26 @@ When deploying to production:
 
 6. **Monitoring:**
    - Check `admin/startgg/logs/` for sync errors
-   - Monitor `DiscordEventBot/logs/bot.log`
    - Review `admin/includes/logs/` for admin activity
+   - Monitor `cache/ggleap-stats.json` for GGLeap data freshness
    - Watch database size (gallery images can grow large)
 
 ---
 
 ## Support Resources
 
+### External APIs & Services
 - **Start.gg API Docs:** https://developer.start.gg/docs/intro
 - **Discord.js Guide:** https://discordjs.guide/
 - **Stripe PHP SDK:** https://github.com/stripe/stripe-php
-- **Internal Documentation:** `START_HERE.md`, `QUICK_REFERENCE.md`
-- **Session Progress:** `SESSION_PROGRESS_2025-10-28.md`
+
+### Internal Documentation
+- `GGLEAP_API_SETUP.md` - GGLeap integration setup guide
+- `GGLEAP_INTEGRATION_GUIDE.md` - Detailed GGLeap implementation
+- `STYLEGUIDE.md` - CSS and brand guidelines
+- `SECURITY_SETUP.md` - Security features configuration
+- `IMAGE_OPTIMIZATION_GUIDE.md` - Image processing instructions
+- `REGISTRATION_IMPLEMENTATION_PLAN.md` - Tournament registration planning
+- `SESSION_PROGRESS_2025-10-28.md` - Session work summary
+- `admin/README.md` - Admin panel documentation
+- `admin/startgg/README.md` - Start.gg integration details
