@@ -22,3 +22,4 @@ vendor/
 # IDE and local development
 .idx/
 node_modules/
+archive/
