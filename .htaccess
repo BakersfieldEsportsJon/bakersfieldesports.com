@@ -1,16 +1,12 @@
-# prove activation
-<IfModule mod_headers.c>
-  Header set X-HTA "on"
-</IfModule>
-
-# stop listings, avoid negotiation surprises
+# Make PHP the homepage and stop listings
 Options -Indexes
 Options -MultiViews
-
-# make PHP the home page and keep one URL
 DirectoryIndex index.php
+
 RewriteEngine On
+# Bare root hits index.php (no listing)
 RewriteRule ^$ index.php [L]
+# One canonical home URL
 RewriteRule ^index(\.php)?/?$ / [R=301,L]
 
 # Enable Compression
