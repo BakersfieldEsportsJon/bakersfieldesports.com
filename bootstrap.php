@@ -1,16 +1,35 @@
 <?php
-// Load environment variables
-if (file_exists(__DIR__.'/.env')) {
+// Load environment variables (skip if already loaded by secure-config.php)
+if (!getenv('DB_HOST') && file_exists(__DIR__.'/.env')) {
     $env = parse_ini_file(__DIR__.'/.env');
     if ($env === false) {
-        throw new RuntimeException('Failed to parse .env file');
-    }
-    foreach ($env as $key => $value) {
-        // Strip quotes from the value if present
-        $value = trim($value, "'\"");
-        putenv("$key=$value");
-        $_ENV[$key] = $value;
-        $_SERVER[$key] = $value;
+        // If parse_ini_file fails, try simple line-by-line parsing
+        $lines = file(__DIR__.'/.env', FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
+        foreach ($lines as $line) {
+            // Skip comments
+            if (strpos(trim($line), '#') === 0) {
+                continue;
+            }
+            // Parse KEY=VALUE
+            if (strpos($line, '=') !== false) {
+                list($key, $value) = explode('=', $line, 2);
+                $key = trim($key);
+                $value = trim($value);
+                // Remove quotes from value
+                $value = trim($value, '"\'');
+                putenv("$key=$value");
+                $_ENV[$key] = $value;
+                $_SERVER[$key] = $value;
+            }
+        }
+    } else {
+        foreach ($env as $key => $value) {
+            // Strip quotes from the value if present
+            $value = trim($value, "'\"");
+            putenv("$key=$value");
+            $_ENV[$key] = $value;
+            $_SERVER[$key] = $value;
+        }
     }
 }
 
