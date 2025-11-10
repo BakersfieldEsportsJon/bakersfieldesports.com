@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Bakersfield eSports – Marketing Opt-In</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; }
+    body {
+      background-color: #0a0a0a; color: #f5f5f5; line-height: 1.6;
+      min-height: 100vh; display: flex; flex-direction: column;
+    }
+    header {
+      background-color: #000; padding: 1rem 2rem; display: flex; justify-content: space-between; align-items: center;
+      box-shadow: 0 2px 4px rgba(0,0,0,.5);
+    }
+    .logo { display: flex; align-items: center; font-size: 1.5rem; font-weight: 700; color: #f0135d; text-decoration: none; }
+    nav a { color: #f5f5f5; text-decoration: none; margin-left: 1.5rem; font-size: 1rem; transition: color .2s ease; }
+    nav a:hover { color: #f0135d; }
+
+    main {
+      flex: 1; max-width: 800px; width: 92%; margin: 2rem auto; padding: 2rem;
+      background-color: rgba(255,255,255,.05); border-radius: 8px; border: 1px solid rgba(255,255,255,.1);
+    }
+    h1 { font-size: 2rem; margin-bottom: 1rem; color: #f0135d; text-align: center; }
+    p.description { text-align: center; margin-bottom: 1.5rem; font-size: 1.05rem; color: #ccc; }
+
+    form { display: flex; flex-direction: column; }
+    label { margin-bottom: .5rem; font-weight: 700; }
+    input[type="text"], input[type="email"], input[type="tel"] {
+      padding: .65rem .75rem; margin-bottom: 1rem; border: none; border-radius: 4px;
+      background-color: #1a1a1a; color: #f5f5f5;
+    }
+    input[type="submit"] {
+      background-color: #f0135d; color: #fff; border: none; padding: .85rem; font-size: 1.05rem;
+      border-radius: 4px; cursor: pointer; transition: background-color .2s ease; margin-top: .25rem;
+    }
+    input[type="submit"]:hover { background-color: #c00048; }
+
+    /* SMS consent / legal */
+    .consent {
+      margin-top: .85rem;
+      font-size: .875rem;       /* ~14px on most browsers */
+      line-height: 1.5;
+      color: #cfcfcf;
+    }
+    .consent a {
+      color: #f5f5f5;
+      text-decoration: underline;
+      text-underline-offset: 2px;
+    }
+    .consent a:hover { color: #f0135d; }
+    .consent .em { font-weight: 700; }
+    .nowrap { white-space: nowrap; }
+
+    /* Status message */
+    #statusMessage { margin-top: 1rem; min-height: 1.2em; }
+
+    /* Small screens: tighten paddings a bit */
+    @media (max-width: 480px) {
+      main { padding: 1.25rem; }
+      h1 { font-size: 1.75rem; }
+    }
+
+    .footer { text-align: center; padding: 1rem; font-size: .85rem; color: #777; }
+    /* Focus styles for accessibility */
+    a:focus, button:focus, input:focus {
+      outline: 2px solid #f0135d; outline-offset: 2px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <a class="logo" href="index.html">
+      <img alt="Bakersfield eSports Logo" src="images/Asset%205-ts1621173277.png" width="200" height="80" />
+    </a>
+    <nav><a href="/">Home</a></nav>
+  </header>
+
+  <main>
+    <h1>Stay Connected</h1>
+    <p class="description">
+      Sign up to receive exclusive SMS and email updates on tournaments, events, and special offers.
+    </p>
+
+    <form id="optInForm" novalidate>
+      <label for="name">Name</label>
+      <input type="text" id="name" name="name" placeholder="Your Name" required autocomplete="name" />
+
+      <label for="email">Email</label>
+      <input type="email" id="email" name="email" placeholder="you@example.com" required autocomplete="email" />
+
+      <label for="phone">Phone Number (SMS)</label>
+      <!-- Exactly 10 digits, dashes optional: 6618587259 or 661-858-7259 -->
+      <input type="tel" id="phone" name="phone" required
+             pattern="\d{3}-?\d{3}-?\d{4}"
+             inputmode="tel"
+             title="Enter 10 digits; dashes optional (e.g., 5555555555 or 555-555-5555)" />
+
+      <input type="submit" id="submitBtn" value="Subscribe" />
+
+      <!-- SMS disclosure -->
+      <p class="consent" role="note" aria-label="SMS consent disclosure">
+        By submitting this form, you agree to receive marketing text messages from Bakersfield eSports Center at the number provided.
+        Up to <span class="nowrap">4 msgs/week</span>. <span class="nowrap">Msg &amp; data rates may apply.</span>
+        Reply <span class="em">STOP</span> to cancel, <span class="em">HELP</span> for help.
+        <span class="em">Consent is not a condition of purchase.</span>
+        See our <a href="https://www.bakersfieldesports.com/privacy-policy.html">Privacy Policy</a>.
+        <!-- If you have a Terms page, link it too:
+             See our <a href="/terms.html">Terms</a> and <a href="/privacy-policy.html">Privacy Policy</a>. -->
+      </p>
+
+      <p id="statusMessage" style="display:none;" aria-live="polite"></p>
+    </form>
+  </main>
+
+  <footer class="footer">
+    &copy; <span id="year"></span> Bakersfield eSports Center. All rights reserved.
+  </footer>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      document.getElementById('year').textContent = new Date().getFullYear();
+
+      const form   = document.getElementById('optInForm');
+      const btn    = document.getElementById('submitBtn');
+      const status = document.getElementById('statusMessage');
+
+      const phoneRegex = /^\d{3}-?\d{3}-?\d{4}$/;
+
+      form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        status.style.display = 'block';
+        status.style.color = '#cccccc';
+        status.textContent = 'Submitting…';
+
+        const fd    = new FormData(form);
+        const name  = (fd.get('name')  || '').toString().trim();
+        const email = (fd.get('email') || '').toString().trim();
+        const phone = (fd.get('phone') || '').toString().trim();
+
+        if (!name)  { status.style.color = '#f07373'; status.textContent = 'Please enter your name.';  return; }
+        if (!email) { status.style.color = '#f07373'; status.textContent = 'Please enter your email.'; return; }
+        if (!phoneRegex.test(phone)) {
+          status.style.color = '#f07373';
+          status.textContent = 'Phone must be 10 digits; dashes optional (e.g., 6618587259 or 661-858-7259).';
+          return;
+        }
+
+        btn.disabled = true; btn.value = 'Sending…';
+
+        try {
+          const res = await fetch('process_marketing_signup.php', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ name, email, phone })
+          });
+
+          let json = null;
+          try { json = await res.json(); } catch {}
+
+          if (res.ok && json && json.success === true) {
+            status.style.color = '#a3ffa3';
+            status.textContent = 'Thank you for subscribing! We will keep you informed.';
+            form.reset();
+            btn.value = 'Sent!';
+            setTimeout(() => { btn.value = 'Subscribe'; btn.disabled = false; }, 1200);
+          } else {
+            status.style.color = '#f07373';
+            status.textContent = (json && json.error) ? json.error : 'Submission failed. Please try again.';
+            btn.disabled = false; btn.value = 'Subscribe';
+          }
+        } catch {
+          status.style.color = '#f07373';
+          status.textContent = 'Network error. Please try again later.';
+          btn.disabled = false; btn.value = 'Subscribe';
+        }
+      });
+    });
+  </script>
+</body>
+</html>

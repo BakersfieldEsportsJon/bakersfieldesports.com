@@ -1,0 +1,81 @@
+User-agent: *
+Allow: /
+Allow: /about-us/
+Allow: /contact-us/
+Allow: /events/
+Allow: /gallery/
+Allow: /images/
+Allow: /locations/
+Allow: /partnerships/
+Allow: /rates-parties/
+Allow: /stem/
+Allow: /stem/coding-classes/
+Allow: /stem/game-development/
+Allow: /stem/robotics-workshops/
+Allow: /es/
+Allow: /m/
+
+# Protect sensitive directories
+Disallow: /admin/
+Disallow: /admin/*
+Disallow: /includes/
+Disallow: /.env
+Disallow: /database/
+Disallow: /tests/
+Disallow: /storage/
+Disallow: /css/pages/
+Disallow: /cssbackup/
+Disallow: /cline_docs/
+Disallow: /link-building/
+
+# Prevent indexing of certain file types
+Disallow: /*.sql$
+Disallow: /*.php$
+Disallow: /*.json$
+Disallow: /*.lock$
+Disallow: /*.sh$
+Disallow: /*.config$
+Disallow: /*.htaccess$
+Disallow: /*.shtml$
+Disallow: /*.md$
+Disallow: /*.txt$
+Disallow: /*.csv$
+
+# Rate limiting for heavy crawlers
+User-agent: AhrefsBot
+Crawl-delay: 10
+Request-rate: 1/10
+
+User-agent: MJ12bot
+Crawl-delay: 10
+Request-rate: 1/10
+
+User-agent: SemrushBot
+Crawl-delay: 10
+Request-rate: 1/10
+
+# Allow major search engines to crawl efficiently
+User-agent: Googlebot
+Crawl-delay: 1
+Request-rate: 10/1
+
+User-agent: bingbot
+Crawl-delay: 1
+Request-rate: 10/1
+
+User-agent: DuckDuckBot
+Crawl-delay: 1
+Request-rate: 10/1
+
+# Mobile-specific crawlers
+User-agent: Googlebot-Mobile
+Allow: /m/
+Crawl-delay: 1
+Request-rate: 10/1
+
+# Sitemaps
+Sitemap: https://bakersfieldesports.com/sitemap.xml
+
+# Crawl budget optimization
+User-agent: *
+Request-rate: 5/1

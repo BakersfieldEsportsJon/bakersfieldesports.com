@@ -1,0 +1,30 @@
+error_log
+error.log
+error_log
+gallery/error.log
+*.log
+node_modules/
+
+# Environment files - NEVER commit these!
+.env
+.env.local
+.env.*.local
+
+# Database files
+*.db
+*.sqlite
+*.sqlite3
+
+# Sensitive files
+admin/includes/bakersfield_esports.db
+
+# Windows reserved filename
+nul
+
+# Local development files
+.idx/
+.ftpquota
+.well-known/
+
+# Vendor dependencies
+vendor/

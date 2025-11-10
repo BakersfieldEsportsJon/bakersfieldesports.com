@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+    <!-- Homepage -->
+    <url>
+        <loc>https://bakersfieldesports.com/</loc>
+        <lastmod>2025-02-19</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>1.0</priority>
+        <image:image>
+            <image:loc>https://bakersfieldesports.com/images/Asset%205-ts1621173277.png</image:loc>
+            <image:title>Bakersfield eSports Logo</image:title>
+            <image:caption>Premier Gaming and eSports Center in Bakersfield</image:caption>
+        </image:image>
+    </url>
+
+    <!-- Main Pages -->
+    <url>
+        <loc>https://bakersfieldesports.com/about-us/</loc>
+        <lastmod>2025-02-19</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://bakersfieldesports.com/locations/</loc>
+        <lastmod>2025-02-19</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+        <image:image>
+            <image:loc>https://bakersfieldesports.com/images/locations-hero.jpg</image:loc>
+            <image:title>Bakersfield eSports Center Location</image:title>
+            <image:caption>Our 5,000 square foot gaming facility in Bakersfield</image:caption>
+            <image:geo_location>Bakersfield, CA</image:geo_location>
+        </image:image>
+    </url>
+    <url>
+        <loc>https://bakersfieldesports.com/events/</loc>
+        <lastmod>2025-02-19</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.9</priority>
+    </url>
+    <url>
+        <loc>https://bakersfieldesports.com/rates-parties/</loc>
+        <lastmod>2025-02-19</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+        <image:image>
+            <image:loc>https://bakersfieldesports.com/images/2024Rates.png</image:loc>
+            <image:title>Gaming Rates and Party Packages</image:title>
+            <image:caption>Current pricing for gaming sessions and party packages</image:caption>
+        </image:image>
+    </url>
+    <url>
+        <loc>https://bakersfieldesports.com/partnerships/</loc>
+        <lastmod>2025-02-19</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://bakersfieldesports.com/gallery/</loc>
+        <lastmod>2025-02-19</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://bakersfieldesports.com/contact-us/</loc>
+        <lastmod>2025-02-19</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
+    <!-- STEM Program Pages -->
+    <url>
+        <loc>https://bakersfieldesports.com/stem/</loc>
+        <lastmod>2025-02-19</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+        <image:image>
+            <image:loc>https://bakersfieldesports.com/images/stem-programs.jpg</image:loc>
+            <image:title>STEM Education Programs</image:title>
+            <image:caption>Innovative STEM learning through gaming and technology</image:caption>
+        </image:image>
+    </url>
+    <url>
+        <loc>https://bakersfieldesports.com/stem/coding-classes/</loc>
+        <lastmod>2025-02-19</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+        <image:image>
+            <image:loc>https://bakersfieldesports.com/images/coding-classes.jpg</image:loc>
+            <image:title>Coding Classes for Kids</image:title>
+            <image:caption>Learn programming through game development</image:caption>
+        </image:image>
+    </url>
+    <url>
+        <loc>https://bakersfieldesports.com/stem/game-development/</loc>
+        <lastmod>2025-02-19</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+        <image:image>
+            <image:loc>https://bakersfieldesports.com/images/game-dev.jpg</image:loc>
+            <image:title>Game Development Workshop</image:title>
+            <image:caption>Create your own games while learning programming</image:caption>
+        </image:image>
+    </url>
+    <url>
+        <loc>https://bakersfieldesports.com/stem/robotics-workshops/</loc>
+        <lastmod>2025-02-19</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+        <image:image>
+            <image:loc>https://bakersfieldesports.com/images/robotics.jpg</image:loc>
+            <image:title>Robotics Workshops</image:title>
+            <image:caption>Hands-on robotics learning experiences</image:caption>
+        </image:image>
+    </url>
+
+    <!-- Event Pages -->
+    <url>
+        <loc>https://bakersfieldesports.com/events/friday-night-magic/</loc>
+        <lastmod>2025-02-19</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+        <image:image>
+            <image:loc>https://bakersfieldesports.com/images/6FridayNightMagic-ts1651206666.png</image:loc>
+            <image:title>Friday Night Magic Event</image:title>
+            <image:caption>Weekly Magic: The Gathering tournaments</image:caption>
+        </image:image>
+    </url>
+    <url>
+        <loc>https://bakersfieldesports.com/events/all-nighter/</loc>
+        <lastmod>2025-02-19</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+        <image:image>
+            <image:loc>https://bakersfieldesports.com/images/AllNighter-ts1678060005.png</image:loc>
+            <image:title>All Nighter Gaming Event</image:title>
+            <image:caption>Extended hours gaming events</image:caption>
+        </image:image>
+    </url>
+
+    <!-- Mobile-Optimized Pages -->
+    <url>
+        <loc>https://bakersfieldesports.com/rates/</loc>
+        <lastmod>2025-02-19</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+        <xhtml:link 
+            rel="alternate"
+            media="only screen and (max-width: 640px)"
+            href="https://bakersfieldesports.com/m/rates/" />
+    </url>
+    <url>
+        <loc>https://bakersfieldesports.com/schedule/</loc>
+        <lastmod>2025-02-19</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.8</priority>
+        <xhtml:link 
+            rel="alternate"
+            media="only screen and (max-width: 640px)"
+            href="https://bakersfieldesports.com/m/schedule/" />
+    </url>
+
+    <!-- Spanish Language Pages -->
+    <url>
+        <loc>https://bakersfieldesports.com/es/inicio/</loc>
+        <lastmod>2025-02-19</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>1.0</priority>
+        <xhtml:link 
+            rel="alternate" 
+            hreflang="es" 
+            href="https://bakersfieldesports.com/es/inicio/" />
+        <xhtml:link 
+            rel="alternate" 
+            hreflang="en" 
+            href="https://bakersfieldesports.com/" />
+    </url>
+</urlset>

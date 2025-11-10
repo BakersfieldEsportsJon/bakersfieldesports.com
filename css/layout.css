@@ -1,0 +1,274 @@
+/* stylelint-disable comment-empty-line-before */
+/* Layout styles - split from optimized.min.css for better caching */
+/* TODO: Media queries still use legacy range syntax. Updated to modern
+   notation but additional cleanup may be needed for layout consistency. */
+/* stylelint-enable comment-empty-line-before */
+
+
+/* Events layout */
+.events,
+.nor-leagues,
+.lod-leagues,
+.weekly-events {
+  padding: 3em 0;
+  background-color: var(--darker-bg);
+}
+
+.events h2,
+.weekly-events h2,
+.lod-leagues h2,
+.nor-leagues h2 {
+  color: var(--primary-color);
+  text-align: center;
+  margin-bottom: 2em;
+}
+
+.events-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2em;
+  justify-content: center;
+  justify-items: center;
+}
+
+.weekly-events .events-grid {
+  grid-template-columns: repeat(4, 1fr);
+}
+
+/* Locations layout */
+.locations-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2em;
+}
+
+/* Rates layout */
+.rates-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2em;
+}
+
+/* Parties layout */
+.parties-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2em;
+  justify-content: center;
+}
+
+.party-item {
+  max-width: 500px;
+  flex: 1 1 calc(33.333% - 2em);
+}
+
+/* Gallery layout */
+.photos-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+/* Games layout */
+.games-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+  margin: 0 auto;
+}
+
+.games-row {
+  display: flex;
+  justify-content: center;
+  gap: 1em;
+}
+
+/* Contact layout */
+.contact-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1em;
+}
+
+.contact-details,
+.contact-form {
+  flex: 1 1 500px;
+}
+
+/* Activity layout */
+.activity {
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 2em;
+  gap: 2em;
+}
+
+.activity-image,
+.activity-content {
+  flex: 1 1 400px;
+}
+
+/* Responsive layouts */
+@media (width <= 1200px) {
+  .locations-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .rates-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .photos-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .games-row {
+    gap: 0.75em;
+  }
+
+  .game-item {
+    width: 105px;
+    height: 105px;
+  }
+}
+
+@media (width <= 992px) {
+  .events-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .contact-grid {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .contact-details,
+  .contact-form {
+    flex: 1 1 100%;
+  }
+
+  .rates-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .games-row {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .game-item {
+    width: 90px;
+    height: 90px;
+  }
+
+  .party-item {
+    flex: 1 1 calc(50% - 2em);
+  }
+
+  .photos-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .weekly-events .events-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (width <= 768px) {
+  .events-grid,
+  .locations-grid,
+  .rates-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .games-row {
+    gap: 0.5em;
+  }
+
+  .game-item {
+    width: 75px;
+    height: 75px;
+    padding: 0.25em;
+  }
+
+  .activity {
+    flex-direction: column;
+  }
+
+  .party-item {
+    flex: 1 1 100%;
+  }
+
+  .photos-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .weekly-events .events-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (width <= 576px) {
+  .events-grid,
+  .photos-grid,
+  .weekly-events .events-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .games-row {
+    gap: 0.25em;
+  }
+
+  .game-item {
+    width: 60px;
+    height: 60px;
+  }
+}
+
+/* Filter layout */
+.filter-section {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+  margin: 1rem 0;
+  padding: 1rem;
+}
+
+.filter-buttons {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 0.5rem;
+}
+
+/* Pagination layout */
+.pagination {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-top: 2rem;
+  flex-wrap: wrap;
+}
+
+/* Partner logos layout */
+.partner-logos {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2em;
+}
+
+.partner-logos a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 150px;
+  height: 150px;
+}
+
+.partner-logos a img {
+  width: 100%;
+  height: auto;
+  max-height: 150px;
+  object-fit: contain;
+}

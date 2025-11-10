@@ -1,0 +1,26 @@
+/* Centralized CSS variables for Bakersfield eSports Center */
+
+:root {
+  /* Brand colors */
+  --primary-color: #EC194D; /* Main brand red */
+  --primary-hover: #b3163e; /* Hover state for buttons/links */
+  --dark-bg: #030202;       /* Page backgrounds */
+  --darker-bg: #121212;     /* Card and modal backgrounds */
+  --light-color: #FBFBFB;   /* Base text and surface color */
+
+  /* Typography */
+  --font-family: 'Open Sans', sans-serif;
+
+  /* Spacing scale */
+  --spacing-sm: 0.5rem;
+  --spacing-md: 1rem;
+  --spacing-lg: 2rem;
+
+  /* Breakpoints */
+  --breakpoint-sm: 576px;
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 992px;
+
+  /* Alias for backwards compatibility */
+  --hover-color: var(--primary-hover);
+}

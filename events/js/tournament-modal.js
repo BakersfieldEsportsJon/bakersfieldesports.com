@@ -1,0 +1,270 @@
+/**
+ * Tournament Modal Handler
+ * Displays tournament details and registration in a modal popup
+ */
+
+(function() {
+    'use strict';
+
+    const modal = {
+        element: null,
+        overlay: null,
+        closeBtn: null,
+        loadingState: null,
+        dataState: null,
+        errorState: null,
+
+        init() {
+            this.element = document.getElementById('tournamentModal');
+            if (!this.element) {
+                console.error('Tournament modal element not found');
+                return;
+            }
+
+            this.overlay = this.element.querySelector('.tournament-modal-overlay');
+            this.closeBtn = this.element.querySelector('.tournament-modal-close');
+            this.loadingState = this.element.querySelector('.tournament-modal-loading');
+            this.dataState = this.element.querySelector('.tournament-modal-data');
+            this.errorState = this.element.querySelector('.tournament-modal-error');
+
+            this.attachEventListeners();
+        },
+
+        attachEventListeners() {
+            // Close button
+            if (this.closeBtn) {
+                this.closeBtn.addEventListener('click', () => this.close());
+            }
+
+            // Close on overlay click
+            if (this.overlay) {
+                this.overlay.addEventListener('click', () => this.close());
+            }
+
+            // Close on escape key
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape' && this.element.classList.contains('active')) {
+                    this.close();
+                }
+            });
+        },
+
+        open(tournamentSlug) {
+            if (!tournamentSlug) {
+                console.error('Tournament slug is required');
+                return;
+            }
+
+            this.element.classList.add('active');
+            document.body.classList.add('modal-open');
+
+            // Show loading state
+            this.showLoading();
+
+            // Fetch tournament details
+            this.fetchTournamentDetails(tournamentSlug);
+        },
+
+        close() {
+            this.element.classList.remove('active');
+            document.body.classList.remove('modal-open');
+
+            // Reset state after animation
+            setTimeout(() => {
+                this.resetModal();
+            }, 300);
+        },
+
+        showLoading() {
+            this.loadingState.style.display = 'block';
+            this.dataState.style.display = 'none';
+            this.errorState.style.display = 'none';
+        },
+
+        showData() {
+            this.loadingState.style.display = 'none';
+            this.dataState.style.display = 'block';
+            this.errorState.style.display = 'none';
+        },
+
+        showError() {
+            this.loadingState.style.display = 'none';
+            this.dataState.style.display = 'none';
+            this.errorState.style.display = 'block';
+        },
+
+        resetModal() {
+            this.showLoading();
+        },
+
+        async fetchTournamentDetails(slug) {
+            try {
+                const response = await fetch(`/api/tournament-details.php?slug=${encodeURIComponent(slug)}`);
+
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+
+                const data = await response.json();
+
+                if (data.success && data.tournament) {
+                    this.populateModal(data.tournament, data.events);
+                    this.showData();
+                } else {
+                    throw new Error(data.error || 'Failed to load tournament details');
+                }
+            } catch (error) {
+                console.error('Error fetching tournament details:', error);
+                this.showError();
+            }
+        },
+
+        populateModal(tournament, events) {
+            // Tournament Name
+            document.getElementById('tournamentName').textContent = tournament.name;
+
+            // Tournament Date
+            const startDate = new Date(tournament.start_at);
+            const endDate = tournament.end_at ? new Date(tournament.end_at) : null;
+            let dateText = this.formatDate(startDate);
+            if (endDate && endDate.getTime() !== startDate.getTime()) {
+                dateText += ` - ${this.formatDate(endDate)}`;
+            }
+            document.getElementById('tournamentDate').textContent = dateText;
+
+            // Location
+            let locationText = tournament.is_online ? 'Online Tournament' : 'TBD';
+            if (!tournament.is_online && tournament.venue_name) {
+                locationText = tournament.venue_name;
+                if (tournament.venue_city) {
+                    locationText += `, ${tournament.venue_city}`;
+                    if (tournament.venue_state) {
+                        locationText += `, ${tournament.venue_state}`;
+                    }
+                }
+            }
+            document.getElementById('tournamentLocation').textContent = locationText;
+
+            // Attendees
+            document.getElementById('tournamentAttendees').textContent =
+                `${tournament.num_attendees || 0} Registered`;
+
+            // Registration Status
+            const regStatus = document.getElementById('registrationStatus');
+            if (tournament.is_registration_open) {
+                regStatus.className = 'registration-status-modal open';
+                regStatus.innerHTML = '<span class="status-icon">✓</span> Registration Open';
+            } else {
+                regStatus.className = 'registration-status-modal closed';
+                regStatus.innerHTML = '<span class="status-icon">✗</span> Registration Closed';
+            }
+
+            // Description
+            const descriptionEl = document.getElementById('tournamentDescription');
+            if (tournament.description) {
+                descriptionEl.textContent = tournament.description;
+            } else {
+                descriptionEl.textContent = 'No description available.';
+            }
+
+            // Rules
+            const rulesSection = document.getElementById('tournamentRulesSection');
+            const rulesEl = document.getElementById('tournamentRules');
+            if (tournament.rules) {
+                rulesEl.textContent = tournament.rules;
+                rulesSection.style.display = 'block';
+            } else {
+                rulesSection.style.display = 'none';
+            }
+
+            // Events
+            document.getElementById('eventCount').textContent = events.length;
+            const eventsContainer = document.getElementById('tournamentEvents');
+            if (events.length > 0) {
+                eventsContainer.innerHTML = events.map(event => this.createEventHTML(event)).join('');
+            } else {
+                eventsContainer.innerHTML = '<p>No events scheduled yet.</p>';
+            }
+
+            // Registration Button
+            const registerBtn = document.getElementById('registerButton');
+            const regSection = document.getElementById('registrationSection');
+            const regIframe = document.getElementById('registrationIframe');
+
+            if (tournament.is_registration_open && tournament.url) {
+                registerBtn.href = tournament.url;
+                regSection.style.display = 'block';
+                regIframe.style.display = 'none';
+            } else {
+                regSection.style.display = 'none';
+                regIframe.style.display = 'none';
+            }
+        },
+
+        createEventHTML(event) {
+            const entryFee = event.entry_fee > 0
+                ? `$${(event.entry_fee / 100).toFixed(2)}`
+                : '<span class="free-entry">FREE</span>';
+
+            return `
+                <div class="tournament-event-item">
+                    ${event.videogame_name ? `<span class="event-game-tag">${this.escapeHtml(event.videogame_name)}</span>` : ''}
+                    <h4>${this.escapeHtml(event.name)}</h4>
+                    <div class="tournament-event-details">
+                        <div class="event-detail">
+                            <strong>Entrants</strong>
+                            <span>${event.num_entrants || 0}</span>
+                        </div>
+                        <div class="event-detail">
+                            <strong>Entry Fee</strong>
+                            <span>${entryFee}</span>
+                        </div>
+                        ${event.bracket_type ? `
+                        <div class="event-detail">
+                            <strong>Format</strong>
+                            <span>${this.escapeHtml(event.bracket_type)}</span>
+                        </div>
+                        ` : ''}
+                        ${event.state ? `
+                        <div class="event-detail">
+                            <strong>Status</strong>
+                            <span>${this.escapeHtml(event.state)}</span>
+                        </div>
+                        ` : ''}
+                    </div>
+                </div>
+            `;
+        },
+
+        formatDate(date) {
+            const options = {
+                year: 'numeric',
+                month: 'long',
+                day: 'numeric',
+                timeZone: 'America/Los_Angeles'
+            };
+            return date.toLocaleDateString('en-US', options);
+        },
+
+        escapeHtml(text) {
+            const map = {
+                '&': '&amp;',
+                '<': '&lt;',
+                '>': '&gt;',
+                '"': '&quot;',
+                "'": '&#039;'
+            };
+            return String(text).replace(/[&<>"']/g, m => map[m]);
+        }
+    };
+
+    // Initialize on DOM ready
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', () => modal.init());
+    } else {
+        modal.init();
+    }
+
+    // Expose modal to global scope
+    window.tournamentModal = modal;
+})();

@@ -1,0 +1,76 @@
+<?php
+header('Content-Type: application/json');
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    try {
+        // Validate required fields
+        $required = ['name', 'email', 'message', 'g-recaptcha-response'];
+        foreach ($required as $field) {
+            if (empty($_POST[$field])) {
+                throw new Exception("Missing required field: $field");
+            }
+        }
+
+        // Sanitize inputs
+        $name = htmlspecialchars(strip_tags($_POST['name']), ENT_QUOTES, 'UTF-8');
+        $email = filter_var($_POST['email'], FILTER_SANITIZE_EMAIL);
+        $message = htmlspecialchars(strip_tags($_POST['message']), ENT_QUOTES, 'UTF-8');
+        
+        if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+            throw new Exception("Invalid email address");
+        }
+
+        // Verify reCAPTCHA
+        $secret = getenv('RECAPTCHA_SECRET_KEY') ?: '';
+        if (empty($secret)) {
+            throw new Exception("reCAPTCHA configuration error");
+        }
+        $response = $_POST['g-recaptcha-response'];
+        $remoteip = $_SERVER['REMOTE_ADDR'];
+
+        $url = 'https://www.google.com/recaptcha/api/siteverify';
+        $data = [
+            'secret' => $secret,
+            'response' => $response,
+            'remoteip' => $remoteip
+        ];
+
+        $options = [
+            'http' => [
+                'header' => "Content-type: application/x-www-form-urlencoded\r\n",
+                'method' => 'POST',
+                'content' => http_build_query($data)
+            ]
+        ];
+        
+        $context = stream_context_create($options);
+        $verify = file_get_contents($url, false, $context);
+        $captcha_success = json_decode($verify);
+
+        if (!$captcha_success->success) {
+            throw new Exception("reCAPTCHA verification failed");
+        }
+
+        // Process form data (e.g., send email, save to database)
+        // TODO: Implement actual form processing logic
+        
+        echo json_encode([
+            'success' => true,
+            'message' => 'Message sent successfully'
+        ]);
+        
+    } catch (Exception $e) {
+        http_response_code(400);
+        echo json_encode([
+            'success' => false,
+            'message' => $e->getMessage()
+        ]);
+    }
+} else {
+    http_response_code(405);
+    echo json_encode([
+        'success' => false,
+        'message' => 'Method not allowed'
+    ]);
+}
+?>

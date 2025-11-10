@@ -1,0 +1,431 @@
+Logged in as BEC Event Bot#4150
+Fetched events: {
+  events: [
+    {
+      id: 'apex-trios-2025',
+      name: 'Apex Legends Team Deathmatch Trios Tournament',
+      category: 'tournaments',
+      description: '',
+      location: 'Bakersfield eSports Center',
+      address: '7104 Golden State Hwy.',
+      date: '2025-01-11T15:00',
+      endDate: null,
+      isRecurring: false,
+      image: '../images/events/apex.jpg',
+      entryCost: '20',
+      registrationLink: 'https://www.start.gg/tournament/apex-winter-trios-tournament/register',
+      notes: 'Late Fee applies to day of tournament'
+    },
+    {
+      id: 'fortnite-build-2025',
+      name: 'Fortnite Build Tournament',
+      category: 'tournaments',
+      description: '',
+      location: 'Bakersfield eSports Center',
+      address: '7104 Golden State Hwy.',
+      date: '2025-01-12T17:00',
+      endDate: null,
+      isRecurring: false,
+      image: '../images/events/Fortnite.png',
+      entryCost: '20',
+      registrationLink: 'https://www.start.gg/tournament/snowpeak-structure-showdown/register',
+      notes: 'Late Fee applies to day of tournament'
+    },
+    {
+      id: 'marvel-rivals-2025',
+      name: 'Marvel Rivals Tournament',
+      category: 'tournaments',
+      description: '',
+      location: 'Bakersfield eSports Center',
+      address: '7104 Golden State Hwy.',
+      date: '2025-01-25T15:00',
+      endDate: null,
+      isRecurring: false,
+      image: '../images/events/marvelrivals.jpg',
+      entryCost: '20',
+      registrationLink: 'https://www.start.gg/tournament/polar-clash-a-marvel-rivals-showdown/register',
+      notes: 'Late Fee applies to day of tournament'
+    },
+    {
+      id: 'party-animals-2025',
+      name: 'Party Animals Tournament',
+      category: 'tournaments',
+      description: '',
+      location: 'Bakersfield eSports Center',
+      address: '7104 Golden State Hwy.',
+      date: '2025-01-26T17:00',
+      endDate: null,
+      isRecurring: false,
+      image: '../images/events/PartyAnimals.jpg',
+      entryCost: '20',
+      registrationLink: 'https://www.start.gg/tournament/frosty-furball-brawl/register',
+      notes: 'Late Fee applies to day of tournament'
+    },
+    {
+      id: 'madden-2025',
+      name: 'Madden NFL 25 Tournament',
+      category: 'tournaments',
+      description: '',
+      location: 'Bakersfield eSports Center',
+      address: '7104 Golden State Hwy.',
+      date: '2025-02-08T15:00',
+      endDate: null,
+      isRecurring: false,
+      image: '../images/events/madden.png',
+      entryCost: '20',
+      registrationLink: 'https://www.start.gg/tournament/red-zone-rumble/register',
+      notes: 'Late Fee applies to day of tournament'
+    },
+    {
+      id: 'League1v1-Feb2025',
+      name: 'League of Legends 1v1 Tournament',
+      category: 'tournaments',
+      description: '',
+      location: 'Bakersfield eSports Center',
+      address: '7104 Golden State Hwy.',
+      date: '2025-02-22T15:00',
+      endDate: null,
+      isRecurring: false,
+      image: '../images/events/league.png',
+      entryCost: '20',
+      registrationLink: 'https://www.start.gg/tournament/champion-s-gauntlet/register',
+      notes: 'Late Fee applies to day of tournament'
+    },
+    {
+      id: 'WarhammerJan-2025',
+      name: 'Warhammer 40k Tournament',
+      category: 'tournaments',
+      description: '',
+      location: 'Bakersfield eSports Center',
+      address: '7104 Golden State Hwy.',
+      date: '2025-01-11T11:00',
+      endDate: null,
+      isRecurring: false,
+      image: '../images/events/warhammer_tournament.jpg',
+      entryCost: '25',
+      registrationLink: 'https://www.start.gg/tournament/warhammer-40k-january-tournament/register',
+      notes: ''
+    },
+    {
+      id: 'event-1736456211951',
+      name: 'Friday Night Magic',
+      category: 'weekly-events',
+      description: 'Join us every Friday for FNM!',
+      location: 'Bakersfield eSports Center',
+      address: '7104 Golden State Hwy',
+      date: '2025-01-10T18:30',
+      endDate: null,
+      isRecurring: true,
+      image: '../../images/events/Magic.png',
+      entryCost: '',
+      registrationLink: '',
+      notes: ''
+    },
+    {
+      id: 'event-1736458938845',
+      name: 'Pokémon Meetup',
+      category: 'weekly-events',
+      description: 'Join us every Thursday for exciting Pokémon TCG Meetups!',
+      location: 'Bakersfield eSports Center',
+      address: '7104 Golden State Hwy',
+      date: '2025-01-16T18:00',
+      endDate: '2025-01-16T21:00',
+      isRecurring: true,
+      image: '../../images/events/1736458679-PokemonMeetup.png',
+      entryCost: '',
+      registrationLink: '',
+      notes: ''
+    },
+    {
+      id: 'event-1736463968840',
+      name: 'Digimon TCG Tournament',
+      category: 'weekly-events',
+      description: 'Join us every Sunday for our Digimon TCG Tournament!',
+      location: 'Bakersfield eSports Center',
+      address: '7104 Golden State Hwy',
+      date: '2025-01-12T18:30',
+      isRecurring: true,
+      image: '../../images/events/Digimon.png',
+      entryCost: '6',
+      registrationLink: '',
+      notes: ''
+    },
+    {
+      id: 'event-1736465330459',
+      name: 'Warhammer Monday',
+      category: 'weekly-events',
+      description: '',
+      location: 'Bakersfield eSports Center',
+      address: '7104 Golden State Hwy',
+      date: '2025-01-13T17:00',
+      isRecurring: true,
+      image: '../../images/events/Warhammer.jpg',
+      entryCost: '',
+      registrationLink: '',
+      notes: ''
+    },
+    {
+      id: 'event-1736466794606',
+      name: 'NOR Super Smash Bros Ultimate League',
+      category: 'nor-leagues',
+      description: 'Saturdays January 11 - February 15\n' +
+        '9:00 AM - 11:00 AM (Ages 8-13)\n' +
+        '11:30 AM - 1:30 PM (Ages 14-17)\n' +
+        '2:00 PM - 4:00 PM (Ages 18+)',
+      location: 'Bakersfield eSports Center',
+      address: '7104 Golden State Hwy',
+      date: '2025-01-11T09:00',
+      endDate: '2025-02-15T16:00',
+      isRecurring: true,
+      image: '../../images/events/Smash.png',
+      entryCost: '150',
+      registrationLink: 'https://register2.vermontsystems.com/wbwsc/canorthoftheriver.wsc/search.html?Action=Start&SubAction=&_csrf_token=Xc0T1E0W06002C3628332I40574M5C571F004K59501I6Z4Y6P4T026K426E521L71605G5101724M4B54706W5G4O4W1H5V4L6N6H056W6056410A5I5W4U4H006Y696O&keyword=smash&display=Detail&module=AR&multiselectlist_value=&arwebsearch_buttonsearch=yes',
+      notes: ''
+    },
+    {
+      id: 'event-1736549007805',
+      name: 'Kern Regional Center Client BBQ Meetup',
+      category: 'tournaments',
+      description: '',
+      location: 'Bakersfield eSports Center',
+      address: '7104 Golden State Hwy',
+      date: '2025-01-14T16:00',
+      endDate: null,
+      isRecurring: false,
+      image: '../../images/events/KRC.png',
+      entryCost: '',
+      registrationLink: '',
+      notes: ''
+    },
+    {
+      id: 'event-1736549720294',
+      name: 'NOR Fortnite League',
+      category: 'nor-leagues',
+      description: 'Saturdays, Mar 22 - May 3, 2025\n' +
+        '9:00 AM - 11:00 AM (Ages 8-13)\n' +
+        '11:30 AM - 1:30 PM (Ages 14-17)\n' +
+        '2:00 PM - 4:00 PM (Ages 18+)',
+      location: 'Bakersfield eSports Center',
+      address: '7104 Golden State Hwy',
+      date: '2025-03-22T09:00',
+      endDate: '2025-05-03T16:00',
+      isRecurring: true,
+      image: '../../images/events/Fortnite.png',
+      entryCost: '150',
+      registrationLink: '',
+      notes: ''
+    },
+    {
+      id: 'event-1736552903809',
+      name: 'Party Animals League',
+      category: 'league-of-dreams-leagues',
+      description: '',
+      location: 'Bakersfield eSports Center',
+      address: '7104 Golden State Hwy',
+      date: '2025-01-21T18:00',
+      endDate: '2025-02-18T19:00',
+      isRecurring: true,
+      image: '../../images/events/PartyAnimals.jpg',
+      entryCost: '',
+      registrationLink: '',
+      notes: 'Contact League of Dreams to Register!'
+    },
+    {
+      id: 'event-1736553233232',
+      name: 'NOR Rocket League League',
+      category: 'nor-leagues',
+      description: 'Saturdays, June 7 - July 12, 2025\n' +
+        '9:00 AM - 11:00 AM (Ages 8-13)\n' +
+        '11:30 AM - 1:30 PM (Ages 14-17)\n' +
+        '2:00 PM - 4:00 PM (Ages 18+)',
+      location: 'Bakersfield eSports Center',
+      address: '7104 Golden State Hwy',
+      date: '2025-06-07T09:00',
+      endDate: '2025-07-12T16:00',
+      isRecurring: true,
+      image: '../../images/events/RocketLeague.jpg',
+      entryCost: '150',
+      registrationLink: '',
+      notes: ''
+    },
+    {
+      id: 'event-1736553420758',
+      name: 'League of Dreams Smash Bros. Ultimate League',
+      category: 'league-of-dreams-leagues',
+      description: '',
+      location: 'Bakersfield eSports Center',
+      address: '7104 Golden State Hwy',
+      date: '2025-03-04T18:00',
+      endDate: '2025-04-08T19:00',
+      isRecurring: true,
+      image: '../../images/events/Smash.png',
+      entryCost: '',
+      registrationLink: '',
+      notes: 'Contact League of Dreams to Register!'
+    },
+    {
+      id: 'event-1736553604099',
+      name: 'League of Dreams Fortnite League',
+      location: 'Bakersfield eSports Center',
+      address: '7104 Golden State Hwy',
+      date: '2025-07-08T18:00',
+      endDate: '2025-08-05T19:00',
+      isRecurring: true,
+      recurrenceFrequency: 'weekly',
+      description: '',
+      image: '../../images/events/Fortnite.png',
+      entryCost: '',
+      registrationLink: '',
+      notes: 'Contact League of Dreams to Register!',
+      category: 'league-of-dreams-leagues'
+    },
+    {
+      id: 'event-1736741540885',
+      name: 'Super Smash Bros Ultimate Tournament',
+      category: 'tournaments',
+      description: '',
+      location: 'Bakersfield eSports Center',
+      address: '7104 Golden State Hwy',
+      date: '2025-02-23T17:00',
+      endDate: '2025-02-23T19:00',
+      isRecurring: false,
+      image: '../../images/events/Smash.png',
+      entryCost: '20',
+      registrationLink: 'https://www.start.gg/tournament/blizzard-brawl-2025/register',
+      notes: 'Late Fee applies to day of tournament'
+    }
+  ]
+}
+Error creating event Apex Legends Team Deathmatch Trios Tournament: Error [GuildVoiceChannelResolve]: Could not resolve channel to a guild voice channel.
+    at GuildScheduledEventManager.create (/home/user/bakersfieldesports.com/node_modules/discord.js/src/managers/GuildScheduledEventManager.js:111:30)
+    at createDiscordEvent (/home/user/bakersfieldesports.com/bot.js:34:72)
+    at Client.<anonymous> (/home/user/bakersfieldesports.com/bot.js:98:34)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5) {
+  code: 'GuildVoiceChannelResolve'
+}
+Error creating event Fortnite Build Tournament: Error [GuildVoiceChannelResolve]: Could not resolve channel to a guild voice channel.
+    at GuildScheduledEventManager.create (/home/user/bakersfieldesports.com/node_modules/discord.js/src/managers/GuildScheduledEventManager.js:111:30)
+    at createDiscordEvent (/home/user/bakersfieldesports.com/bot.js:34:72)
+    at Client.<anonymous> (/home/user/bakersfieldesports.com/bot.js:98:34)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5) {
+  code: 'GuildVoiceChannelResolve'
+}
+Error creating event Marvel Rivals Tournament: Error [GuildVoiceChannelResolve]: Could not resolve channel to a guild voice channel.
+    at GuildScheduledEventManager.create (/home/user/bakersfieldesports.com/node_modules/discord.js/src/managers/GuildScheduledEventManager.js:111:30)
+    at createDiscordEvent (/home/user/bakersfieldesports.com/bot.js:34:72)
+    at Client.<anonymous> (/home/user/bakersfieldesports.com/bot.js:98:34)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5) {
+  code: 'GuildVoiceChannelResolve'
+}
+Error creating event Party Animals Tournament: Error [GuildVoiceChannelResolve]: Could not resolve channel to a guild voice channel.
+    at GuildScheduledEventManager.create (/home/user/bakersfieldesports.com/node_modules/discord.js/src/managers/GuildScheduledEventManager.js:111:30)
+    at createDiscordEvent (/home/user/bakersfieldesports.com/bot.js:34:72)
+    at Client.<anonymous> (/home/user/bakersfieldesports.com/bot.js:98:34)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5) {
+  code: 'GuildVoiceChannelResolve'
+}
+Error creating event Madden NFL 25 Tournament: Error [GuildVoiceChannelResolve]: Could not resolve channel to a guild voice channel.
+    at GuildScheduledEventManager.create (/home/user/bakersfieldesports.com/node_modules/discord.js/src/managers/GuildScheduledEventManager.js:111:30)
+    at createDiscordEvent (/home/user/bakersfieldesports.com/bot.js:34:72)
+    at Client.<anonymous> (/home/user/bakersfieldesports.com/bot.js:98:34)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5) {
+  code: 'GuildVoiceChannelResolve'
+}
+Error creating event League of Legends 1v1 Tournament: Error [GuildVoiceChannelResolve]: Could not resolve channel to a guild voice channel.
+    at GuildScheduledEventManager.create (/home/user/bakersfieldesports.com/node_modules/discord.js/src/managers/GuildScheduledEventManager.js:111:30)
+    at createDiscordEvent (/home/user/bakersfieldesports.com/bot.js:34:72)
+    at Client.<anonymous> (/home/user/bakersfieldesports.com/bot.js:98:34)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5) {
+  code: 'GuildVoiceChannelResolve'
+}
+Error creating event Warhammer 40k Tournament: Error [GuildVoiceChannelResolve]: Could not resolve channel to a guild voice channel.
+    at GuildScheduledEventManager.create (/home/user/bakersfieldesports.com/node_modules/discord.js/src/managers/GuildScheduledEventManager.js:111:30)
+    at createDiscordEvent (/home/user/bakersfieldesports.com/bot.js:34:72)
+    at Client.<anonymous> (/home/user/bakersfieldesports.com/bot.js:98:34)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5) {
+  code: 'GuildVoiceChannelResolve'
+}
+Error creating event Friday Night Magic: Error [GuildVoiceChannelResolve]: Could not resolve channel to a guild voice channel.
+    at GuildScheduledEventManager.create (/home/user/bakersfieldesports.com/node_modules/discord.js/src/managers/GuildScheduledEventManager.js:111:30)
+    at createDiscordEvent (/home/user/bakersfieldesports.com/bot.js:34:72)
+    at Client.<anonymous> (/home/user/bakersfieldesports.com/bot.js:98:34)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5) {
+  code: 'GuildVoiceChannelResolve'
+}
+Error creating event Pokémon Meetup: Error [GuildVoiceChannelResolve]: Could not resolve channel to a guild voice channel.
+    at GuildScheduledEventManager.create (/home/user/bakersfieldesports.com/node_modules/discord.js/src/managers/GuildScheduledEventManager.js:111:30)
+    at createDiscordEvent (/home/user/bakersfieldesports.com/bot.js:34:72)
+    at Client.<anonymous> (/home/user/bakersfieldesports.com/bot.js:98:34)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5) {
+  code: 'GuildVoiceChannelResolve'
+}
+Error creating event Digimon TCG Tournament: Error [GuildVoiceChannelResolve]: Could not resolve channel to a guild voice channel.
+    at GuildScheduledEventManager.create (/home/user/bakersfieldesports.com/node_modules/discord.js/src/managers/GuildScheduledEventManager.js:111:30)
+    at createDiscordEvent (/home/user/bakersfieldesports.com/bot.js:34:72)
+    at Client.<anonymous> (/home/user/bakersfieldesports.com/bot.js:98:34)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5) {
+  code: 'GuildVoiceChannelResolve'
+}
+Error creating event Warhammer Monday: Error [GuildVoiceChannelResolve]: Could not resolve channel to a guild voice channel.
+    at GuildScheduledEventManager.create (/home/user/bakersfieldesports.com/node_modules/discord.js/src/managers/GuildScheduledEventManager.js:111:30)
+    at createDiscordEvent (/home/user/bakersfieldesports.com/bot.js:34:72)
+    at Client.<anonymous> (/home/user/bakersfieldesports.com/bot.js:98:34)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5) {
+  code: 'GuildVoiceChannelResolve'
+}
+Error creating event NOR Super Smash Bros Ultimate League: Error [GuildVoiceChannelResolve]: Could not resolve channel to a guild voice channel.
+    at GuildScheduledEventManager.create (/home/user/bakersfieldesports.com/node_modules/discord.js/src/managers/GuildScheduledEventManager.js:111:30)
+    at createDiscordEvent (/home/user/bakersfieldesports.com/bot.js:34:72)
+    at Client.<anonymous> (/home/user/bakersfieldesports.com/bot.js:98:34)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5) {
+  code: 'GuildVoiceChannelResolve'
+}
+Error creating event Kern Regional Center Client BBQ Meetup: Error [GuildVoiceChannelResolve]: Could not resolve channel to a guild voice channel.
+    at GuildScheduledEventManager.create (/home/user/bakersfieldesports.com/node_modules/discord.js/src/managers/GuildScheduledEventManager.js:111:30)
+    at createDiscordEvent (/home/user/bakersfieldesports.com/bot.js:34:72)
+    at Client.<anonymous> (/home/user/bakersfieldesports.com/bot.js:98:34)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5) {
+  code: 'GuildVoiceChannelResolve'
+}
+Error creating event NOR Fortnite League: Error [GuildVoiceChannelResolve]: Could not resolve channel to a guild voice channel.
+    at GuildScheduledEventManager.create (/home/user/bakersfieldesports.com/node_modules/discord.js/src/managers/GuildScheduledEventManager.js:111:30)
+    at createDiscordEvent (/home/user/bakersfieldesports.com/bot.js:34:72)
+    at Client.<anonymous> (/home/user/bakersfieldesports.com/bot.js:98:34)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5) {
+  code: 'GuildVoiceChannelResolve'
+}
+Error creating event Party Animals League: Error [GuildVoiceChannelResolve]: Could not resolve channel to a guild voice channel.
+    at GuildScheduledEventManager.create (/home/user/bakersfieldesports.com/node_modules/discord.js/src/managers/GuildScheduledEventManager.js:111:30)
+    at createDiscordEvent (/home/user/bakersfieldesports.com/bot.js:34:72)
+    at Client.<anonymous> (/home/user/bakersfieldesports.com/bot.js:98:34)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5) {
+  code: 'GuildVoiceChannelResolve'
+}
+Error creating event NOR Rocket League League: Error [GuildVoiceChannelResolve]: Could not resolve channel to a guild voice channel.
+    at GuildScheduledEventManager.create (/home/user/bakersfieldesports.com/node_modules/discord.js/src/managers/GuildScheduledEventManager.js:111:30)
+    at createDiscordEvent (/home/user/bakersfieldesports.com/bot.js:34:72)
+    at Client.<anonymous> (/home/user/bakersfieldesports.com/bot.js:98:34)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5) {
+  code: 'GuildVoiceChannelResolve'
+}
+Error creating event League of Dreams Smash Bros. Ultimate League: Error [GuildVoiceChannelResolve]: Could not resolve channel to a guild voice channel.
+    at GuildScheduledEventManager.create (/home/user/bakersfieldesports.com/node_modules/discord.js/src/managers/GuildScheduledEventManager.js:111:30)
+    at createDiscordEvent (/home/user/bakersfieldesports.com/bot.js:34:72)
+    at Client.<anonymous> (/home/user/bakersfieldesports.com/bot.js:98:34)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5) {
+  code: 'GuildVoiceChannelResolve'
+}
+Error creating event League of Dreams Fortnite League: Error [GuildVoiceChannelResolve]: Could not resolve channel to a guild voice channel.
+    at GuildScheduledEventManager.create (/home/user/bakersfieldesports.com/node_modules/discord.js/src/managers/GuildScheduledEventManager.js:111:30)
+    at createDiscordEvent (/home/user/bakersfieldesports.com/bot.js:34:72)
+    at Client.<anonymous> (/home/user/bakersfieldesports.com/bot.js:98:34)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5) {
+  code: 'GuildVoiceChannelResolve'
+}
+Error creating event Super Smash Bros Ultimate Tournament: Error [GuildVoiceChannelResolve]: Could not resolve channel to a guild voice channel.
+    at GuildScheduledEventManager.create (/home/user/bakersfieldesports.com/node_modules/discord.js/src/managers/GuildScheduledEventManager.js:111:30)
+    at createDiscordEvent (/home/user/bakersfieldesports.com/bot.js:34:72)
+    at Client.<anonymous> (/home/user/bakersfieldesports.com/bot.js:98:34)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5) {
+  code: 'GuildVoiceChannelResolve'
+}
