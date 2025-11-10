@@ -160,7 +160,7 @@ function fetchTotalUsers($config, $jwtToken) {
 // ============================================
 
 function fetchNewPlayersThisWeek($config, $jwtToken) {
-    logMessage("Fetching new players this week...");
+    logMessage("Fetching new players in last 7 days...");
 
     $uniqueUsers = [];
     $paginationToken = null;
@@ -170,7 +170,7 @@ function fetchNewPlayersThisWeek($config, $jwtToken) {
         $page++;
         $url = $config['api_base_url'] . '/activity-logs/search';
         $params = [
-            'TimeFrameType' => 'ThisWeek',
+            'TimeFrameType' => 'Last7Days',
             'Limit' => 500,
             'Actions[]' => 'CreatedUser',
             'GuestOnly' => 'false'
@@ -201,7 +201,7 @@ function fetchNewPlayersThisWeek($config, $jwtToken) {
     } while ($paginationToken);
 
     $count = count($uniqueUsers);
-    logMessage("New players this week: $count");
+    logMessage("New players in last 7 days: $count");
 
     return $count;
 }
@@ -248,7 +248,7 @@ try {
 
     logMessage("Stats cached successfully");
     logMessage("Total accounts: {$stats['totalAccounts']}");
-    logMessage("New players this week: {$stats['newAccountsToday']}");
+    logMessage("New players in last 7 days: {$stats['newAccountsToday']}");
 
     $duration = round(microtime(true) - $startTime, 2);
     logMessage("=== Update Complete in {$duration} seconds ===");
