@@ -1,3 +1,4 @@
+<?php header('X-From-PHP: 1'); ?>
 <?php
 /**
  * Homepage - Bakersfield eSports Center
