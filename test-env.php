@@ -30,7 +30,7 @@ foreach ($env_paths as $path) {
 
 // Check key environment variables (without exposing values)
 echo "<h2>Environment Variables:</h2>";
-$keys = ['DB_HOST', 'DB_NAME', 'DB_USER', 'SESSION_ENCRYPTION_KEY'];
+$keys = ['DB_HOST', 'DB_NAME', 'DB_USER', 'DB_PASSWORD', 'SESSION_ENCRYPTION_KEY'];
 foreach ($keys as $key) {
     $value = env($key);
     $status = $value ? "✅ SET" : "❌ NOT SET";
