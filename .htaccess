@@ -1,3 +1,5 @@
+Header set X-HTA on
+
 # Make PHP the default index
 DirectoryIndex index.php
 Options -MultiViews
