@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Test Events Page API Fetch</title>
+    <style>
+        body { font-family: monospace; padding: 20px; background: #1a1a1a; color: #fff; }
+        .result { background: #2a2a2a; padding: 15px; margin: 10px 0; border-radius: 5px; }
+        .success { color: #00C851; }
+        .error { color: #ff6b6b; }
+        pre { background: #000; padding: 10px; overflow-x: auto; max-height: 400px; }
+    </style>
+</head>
+<body>
+    <h1>Simulating Events Page API Call</h1>
+    <p>This page is at: <code>/bakersfield/test-events-fetch.html</code></p>
+    <p>Events page is at: <code>/bakersfield/events/index.php</code></p>
+
+    <div class="result">
+        <h2>Test: API call from events/ directory path</h2>
+        <p>Trying: <code>../api/startgg-events.php</code></p>
+        <div id="result"></div>
+    </div>
+
+    <div class="result">
+        <h2>Test: Absolute path</h2>
+        <p>Trying: <code>/bakersfield/api/startgg-events.php</code></p>
+        <div id="result2"></div>
+    </div>
+
+    <div class="result">
+        <h2>Network Tab</h2>
+        <p>Open F12 Developer Tools → Network tab and refresh this page</p>
+        <p>Look for <code>startgg-events.php</code> requests</p>
+        <p>Check the status code (should be 200)</p>
+    </div>
+
+    <script>
+        // Test 1: Relative path (as used in actual events page)
+        console.log('Starting API test...');
+
+        fetch('../api/startgg-events.php')
+            .then(response => {
+                console.log('Response status:', response.status);
+                console.log('Response ok:', response.ok);
+
+                if (!response.ok) {
+                    throw new Error(`HTTP ${response.status}: ${response.statusText}`);
+                }
+                return response.json();
+            })
+            .then(data => {
+                console.log('Data received:', data);
+                document.getElementById('result').innerHTML = `
+                    <p class="success">✓ SUCCESS!</p>
+                    <p>Events found: ${data.events?.length || 0}</p>
+                    <p>First event: ${data.events?.[0]?.name || 'N/A'}</p>
+                    <pre>${JSON.stringify(data, null, 2).substring(0, 500)}...</pre>
+                `;
+            })
+            .catch(error => {
+                console.error('Fetch error:', error);
+                document.getElementById('result').innerHTML = `
+                    <p class="error">✗ ERROR: ${error.message}</p>
+                    <p>Check the Network tab in F12 for more details</p>
+                `;
+            });
+
+        // Test 2: Absolute path
+        fetch('/bakersfield/api/startgg-events.php')
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById('result2').innerHTML = `
+                    <p class="success">✓ Absolute path works!</p>
+                    <p>Events: ${data.events?.length || 0}</p>
+                `;
+            })
+            .catch(error => {
+                document.getElementById('result2').innerHTML = `
+                    <p class="error">✗ Error: ${error.message}</p>
+                `;
+            });
+    </script>
+</body>
+</html>

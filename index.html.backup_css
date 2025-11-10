@@ -1,0 +1,642 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Bakersfield eSports Center | Gaming, Tournaments & Events in Kern County</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="canonical" href="https://bakersfieldesports.com/" />
+    <!-- Meta Tags for SEO -->
+    <meta name="description" content="Bakersfield eSports is your place to play or compete in your favorite games with your friends and take part in exclusive tournaments and leagues.">
+    <meta name="keywords" content="eSports, Bakersfield, gaming, tournaments, leagues, virtual reality, board games, card games">
+    <meta name="robots" content="index, follow">
+    <meta name="author" content="Bakersfield eSports Center">
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Bakersfield eSports Center">
+    <meta property="og:description" content="Your place to play or compete in your favorite games with friends and take part in exclusive tournaments and leagues.">
+    <meta property="og:image" content="https://bakersfieldesports.com/images/4f89135c19afc30d06cbfb9a8d6fdc11_fit.png">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://bakersfieldesports.com/">
+    <!-- X Cards -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@Bak_eSports">
+    <meta name="twitter:title" content="Bakersfield eSports Center | Gaming, Tournaments & Events in Kern County">
+    <meta name="twitter:description" content="Your place to play or compete in your favorite games with friends and take part in exclusive tournaments and leagues.">
+    <meta name="twitter:image" content="https://bakersfieldesports.com/images/4f89135c19afc30d06cbfb9a8d6fdc11_fit.png">
+    <!-- Schema.org Local Business Markup -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "LocalBusiness",
+        "name": "Bakersfield eSports Center",
+        "image": "https://bakersfieldesports.com/images/Asset%205-ts1621173277.png",
+        "description": "Your place to play or compete in your favorite games with friends and take part in exclusive tournaments and leagues.",
+        "@id": "https://bakersfieldesports.com",
+        "url": "https://bakersfieldesports.com",
+        "telephone": "+1 661 529 7447",
+        "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "7104 Golden State Hwy",
+            "addressLocality": "Bakersfield",
+            "addressRegion": "CA",
+            "postalCode": "93308",
+            "addressCountry": "US"
+        },
+        "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": 35.3733,
+            "longitude": -119.0694
+        },
+        "openingHoursSpecification": [
+            {
+                "@type": "OpeningHoursSpecification",
+                "dayOfWeek": ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday"],
+                "opens": "12:00",
+                "closes": "23:00"
+            },
+            {
+                "@type": "OpeningHoursSpecification",
+                "dayOfWeek": ["Friday", "Saturday"],
+                "opens": "12:00",
+                "closes": "00:00"
+            }
+        ],
+        "sameAs": [
+            "https://www.facebook.com/Bakersfield-ESports-104418741131608",
+            "https://x.com/Bak_eSports",
+            "https://www.instagram.com/bakersfieldesports",
+            "https://www.twitch.tv/bakersfieldesportscenter",
+            "https://www.youtube.com/channel/UCZvHOMf6jzLVp4Rf3A_fd1A",
+            "https://www.tiktok.com/@bakersfieldesportscenter"
+        ]
+    }
+    </script>
+    <!-- Event Schema Markup -->
+    <!-- Weekly Events Schema -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "EventSeries",
+        "name": "Weekly Gaming Events",
+        "description": "Regular weekly gaming events and tournaments at Bakersfield eSports Center",
+        "location": {
+            "@type": "Place",
+            "name": "Bakersfield eSports Center",
+            "address": {
+                "@type": "PostalAddress",
+                "streetAddress": "7104 Golden State Hwy",
+                "addressLocality": "Bakersfield",
+                "addressRegion": "CA",
+                "postalCode": "93308",
+                "addressCountry": "US"
+            }
+        },
+        "subEvent": [
+            {
+                "@type": "Event",
+                "name": "Friday Night Magic",
+                "description": "Join us every Friday for FNM!",
+                "startDate": "2025-01-10T18:30",
+                "eventStatus": "EventScheduled",
+                "eventAttendanceMode": "OfflineEventAttendanceMode",
+                "offers": {
+                    "@type": "Offer",
+                    "price": "0.00",
+                    "priceCurrency": "USD",
+                    "availability": "https://schema.org/InStock"
+                }
+            },
+            {
+                "@type": "Event",
+                "name": "Pokémon Meetup",
+                "description": "Join us every Thursday for exciting Pokémon TCG Meetups!",
+                "startDate": "2025-01-16T18:00",
+                "eventStatus": "EventScheduled",
+                "eventAttendanceMode": "OfflineEventAttendanceMode",
+                "offers": {
+                    "@type": "Offer",
+                    "price": "0.00",
+                    "priceCurrency": "USD",
+                    "availability": "https://schema.org/InStock"
+                }
+            },
+            {
+                "@type": "Event",
+                "name": "Digimon TCG Tournament",
+                "description": "Join us every Sunday for our Digimon TCG Tournament!",
+                "startDate": "2025-01-12T18:30",
+                "eventStatus": "EventScheduled",
+                "eventAttendanceMode": "OfflineEventAttendanceMode",
+                "offers": {
+                    "@type": "Offer",
+                    "price": "6.00",
+                    "priceCurrency": "USD",
+                    "availability": "https://schema.org/InStock"
+                }
+            }
+        ],
+        "organizer": {
+            "@type": "Organization",
+            "name": "Bakersfield eSports Center",
+            "url": "https://bakersfieldesports.com"
+        }
+    }
+    </script>
+    <!-- Tournaments Schema -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "EventSeries",
+        "name": "Gaming Tournaments",
+        "description": "Competitive gaming tournaments at Bakersfield eSports Center",
+        "location": {
+            "@type": "Place",
+            "name": "Bakersfield eSports Center",
+            "address": {
+                "@type": "PostalAddress",
+                "streetAddress": "7104 Golden State Hwy",
+                "addressLocality": "Bakersfield",
+                "addressRegion": "CA",
+                "postalCode": "93308",
+                "addressCountry": "US"
+            }
+        },
+        "subEvent": [
+            {
+                "@type": "Event",
+                "name": "League of Legends 1v1 Tournament",
+                "description": "",
+                "startDate": "2025-02-22T15:00",
+                "eventStatus": "EventScheduled",
+                "eventAttendanceMode": "OfflineEventAttendanceMode",
+                "offers": {
+                    "@type": "Offer",
+                    "price": "20.00",
+                    "priceCurrency": "USD",
+                    "availability": "https://schema.org/InStock",
+                    "url": "https://www.start.gg/tournament/champion-s-gauntlet/register"
+                },
+                "image": "https://bakersfieldesports.com/images/events/league.png"
+            },
+            {
+                "@type": "Event",
+                "name": "Super Smash Bros Ultimate Tournament",
+                "description": "",
+                "startDate": "2025-02-23T17:00",
+                "endDate": "2025-02-23T19:00",
+                "eventStatus": "EventScheduled",
+                "eventAttendanceMode": "OfflineEventAttendanceMode",
+                "offers": {
+                    "@type": "Offer",
+                    "price": "20.00",
+                    "priceCurrency": "USD",
+                    "availability": "https://schema.org/InStock",
+                    "url": "https://www.start.gg/tournament/blizzard-brawl-2025/register"
+                },
+                "image": "https://bakersfieldesports.com/images/events/Smash.png"
+            }
+        ],
+        "organizer": {
+            "@type": "Organization",
+            "name": "Bakersfield eSports Center",
+            "url": "https://bakersfieldesports.com"
+        }
+    }
+    </script>
+    <!-- League Programs Schema -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "EventSeries",
+        "name": "Gaming League Programs",
+        "description": "Structured gaming leagues for different age groups",
+        "location": {
+            "@type": "Place",
+            "name": "Bakersfield eSports Center",
+            "address": {
+                "@type": "PostalAddress",
+                "streetAddress": "7104 Golden State Hwy",
+                "addressLocality": "Bakersfield",
+                "addressRegion": "CA",
+                "postalCode": "93308",
+                "addressCountry": "US"
+            }
+        },
+        "subEvent": [
+            {
+                "@type": "Event",
+                "name": "NOR Super Smash Bros Ultimate League",
+                "description": "Saturdays January 11 - February 15\n9:00 AM - 11:00 AM (Ages 8-13)\n11:30 AM - 1:30 PM (Ages 14-17)\n2:00 PM - 4:00 PM (Ages 18+)",
+                "startDate": "2025-01-11T09:00",
+                "endDate": "2025-02-15T16:00",
+                "eventStatus": "EventScheduled",
+                "eventAttendanceMode": "OfflineEventAttendanceMode",
+                "offers": {
+                    "@type": "Offer",
+                    "price": "150.00",
+                    "priceCurrency": "USD",
+                    "availability": "https://schema.org/InStock",
+                    "url": "https://register2.vermontsystems.com/wbwsc/canorthoftheriver.wsc/search.html"
+                },
+                "image": "https://bakersfieldesports.com/images/events/Smash.png"
+            },
+            {
+                "@type": "Event",
+                "name": "NOR Fortnite League",
+                "description": "Saturdays, Mar 22 - May 3, 2025\n9:00 AM - 11:00 AM (Ages 8-13)\n11:30 AM - 1:30 PM (Ages 14-17)\n2:00 PM - 4:00 PM (Ages 18+)",
+                "startDate": "2025-03-22T09:00",
+                "endDate": "2025-05-03T16:00",
+                "eventStatus": "EventScheduled",
+                "eventAttendanceMode": "OfflineEventAttendanceMode",
+                "offers": {
+                    "@type": "Offer",
+                    "price": "150.00",
+                    "priceCurrency": "USD",
+                    "availability": "https://schema.org/InStock"
+                },
+                "image": "https://bakersfieldesports.com/images/events/Fortnite.png"
+            }
+        ],
+        "organizer": {
+            "@type": "Organization",
+            "name": "Bakersfield eSports Center",
+            "url": "https://bakersfieldesports.com"
+        }
+    }
+    </script>
+    <!-- Products Schema -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "ItemList",
+        "itemListElement": [
+            {
+                "@type": "Product",
+                "name": "Gaming Station Access",
+                "description": "High-performance gaming PCs and next-gen consoles with the latest games",
+                "offers": {
+                    "@type": "AggregateOffer",
+                    "lowPrice": "7.00",
+                    "highPrice": "250.00",
+                    "priceCurrency": "USD",
+                    "availability": "https://schema.org/InStock",
+                    "offerCount": "6",
+                    "offers": [
+                        {
+                            "@type": "Offer",
+                            "name": "Unlimited Membership",
+                            "price": "250.00",
+                            "priceCurrency": "USD",
+                            "description": "Unlimited access during operating hours"
+                        },
+                        {
+                            "@type": "Offer",
+                            "name": "Hourly Rate",
+                            "price": "7.00",
+                            "priceCurrency": "USD",
+                            "description": "Per hour gaming rate"
+                        },
+                        {
+                            "@type": "Offer",
+                            "name": "4-Hour Package",
+                            "price": "24.00",
+                            "priceCurrency": "USD",
+                            "description": "4 hours of gaming"
+                        },
+                        {
+                            "@type": "Offer",
+                            "name": "Weekday Day Pass",
+                            "price": "35.00",
+                            "priceCurrency": "USD",
+                            "description": "Monday-Friday, up to 12 hours"
+                        },
+                        {
+                            "@type": "Offer",
+                            "name": "Weekend Day Pass",
+                            "price": "40.00",
+                            "priceCurrency": "USD",
+                            "description": "Saturday-Sunday, up to 12 hours"
+                        },
+                        {
+                            "@type": "Offer",
+                            "name": "Night Pass",
+                            "price": "14.00",
+                            "priceCurrency": "USD",
+                            "description": "Last 3 hours of operation"
+                        }
+                    ]
+                }
+            },
+            {
+                "@type": "Product",
+                "name": "Standard Party Package",
+                "description": "Complete gaming party experience with dedicated host, gaming time, and refreshments",
+                "offers": {
+                    "@type": "Offer",
+                    "price": "295.00",
+                    "priceCurrency": "USD",
+                    "description": "Includes: dedicated party host, 2 hours gameplay for 10 players (+$10 per extra player), 1 hour party area, drinks, 2 large pizzas (Cheese or Pepperoni)",
+                    "availability": "https://schema.org/InStock",
+                    "url": "https://bakersfieldesports.com/rates-parties/#parties"
+                }
+            }
+        ]
+    }
+    </script>
+    <!-- FAQ Schema -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "What are your hours of operation?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "We are open Sunday through Thursday from 12 P.M. to 11 P.M., and Friday & Saturday from 12 P.M. to 12 A.M."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "What gaming equipment do you offer?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Our center features high-performance gaming PCs with the latest hardware, next-generation gaming consoles, immersive virtual reality stations, VR escape rooms, and dedicated spaces for trading card games."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "What types of events do you host?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "We host weekly tournaments (including Friday Night Magic), special gaming events, birthday parties, and casual gaming sessions. Our events include both video gaming and trading card game tournaments."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Do you offer birthday party packages?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes, we offer a Standard Party Package for $295 that includes a dedicated party host, 2 hours of gameplay for 10 players (+$10 per extra player), 1 hour in party area, drinks, and 2 large pizzas (Cheese or Pepperoni)."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "What trading card games do you support?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "We support Magic: The Gathering, Pokémon TCG, Yu-Gi-Oh!, and casual card games like UNO. We host regular tournaments and friendly matches in our dedicated trading card game spaces."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Where are you located?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "We are located at 7104 Golden State Hwy, Bakersfield, CA 93308. Our 5,000 square foot facility is in the heart of Bakersfield."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Do I need to make a reservation?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "While walk-ins are welcome for casual gaming, we recommend reservations for birthday parties and tournament participation. You can book through our website or call us at (661) 529-7447."
+                }
+            }
+        ]
+    }
+    </script>
+    <!-- Preload Critical Resources -->
+    <link rel="preload" href="images/Asset%205-ts1621173277.png" as="image">
+    <!-- External CSS -->
+    <!-- Critical CSS -->
+    <link rel="preload" href="css/optimized.min.css" as="style">
+    <link rel="preload" href="css/custom.css" as="style">
+    <link rel="preload" href="css/optimized.min.css" as="style">
+    <link rel="preload" href="css/custom.css" as="style">
+    <!-- Preload Critical Resources -->
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,900|Fugaz+One|Open+Sans:300,400,600,700,800&display=swap" rel="stylesheet">
+    <!-- Favicon -->
+    <link href="images/favicons/favicon.png" rel="icon" type="image/png">
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-09FBJQFRQE"></script>
+    <script async src="/js/analytics.js"></script>
+    
+    <!-- Facebook Pixel -->
+    <script async src="/js/facebook-pixel.js"></script>
+    <noscript>
+        <img height="1" width="1" class="hidden"
+            src="https://www.facebook.com/tr?id=YOUR-PIXEL-ID&ev=PageView&noscript=1"/>
+    </noscript>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav class="navbar">
+            <div class="container">
+                <a class="logo" href="index.html">
+                    <img alt="Bakersfield eSports Logo" src="images/Asset%205-ts1621173277.png" width="200" height="80">
+                </a>
+                <!-- Navigation Toggle Button -->
+                <button aria-label="Toggle navigation" class="nav-toggle" id="nav-toggle">☰</button>
+                <!-- Navigation Menu -->
+                <ul class="nav-menu" id="nav-menu">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a class="active" href="locations/index.html">Locations</a></li>
+                    <li><a href="events/">Events</a></li>
+                    <li><a href="rates-parties/index.html">Rates &amp; Parties</a></li>
+                    <li><a href="partnerships/index.html">Partnerships</a></li>
+                    <li><a href="about-us/index.html">About Us</a></li>
+                    <li><a href="contact-us/index.html">Contact Us</a></li>
+                    <li><a href="https://discord.gg/jbzWH3ZvRp" target="_blank">Discord</a></li>
+                    <li><a href="stem/index.html">STEM</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Hero Section -->
+        <section class="hero hero-home">
+            <div class="container">
+                <h1>Welcome to Bakersfield eSports Center</h1>
+                <p>Your place to play or compete in your favorite games with friends and take part in exclusive tournaments and leagues.</p>
+                <a class="btn btn-primary" href="events/">View Upcoming Events</a><br>
+                <a class="btn btn-primary" href="rates-parties/index.html#parties">Book a Party</a>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section class="about">
+            <div class="container">
+                <h2>We're Open!</h2>
+                <p>We have opened our 5,000 square foot eSports and event center. Play or compete in your favorite games online or with friends, and take part in exclusive tournaments and league nights.</p>
+                <p>Our state-of-the-art center features high-performance gaming PCs equipped with the latest hardware, next-generation gaming consoles, immersive virtual reality stations, challenging VR escape rooms, spacious party rooms, and much more! Whether you're a casual gamer or a competitive esports athlete, we have the perfect setup for you.</p>
+                
+                <p>For tabletop gaming enthusiasts, we have dedicated spaces for trading card games like Magic: The Gathering, Pokémon TCG, Yu-Gi-Oh!, and casual card games like UNO. Our weekly tournaments and friendly matches bring together Bakersfield's vibrant gaming community in a welcoming, competitive environment.</p>
+                
+                <p>Looking for a unique team building experience? We've got you covered! Our corporate events combine the excitement of gaming with team-building exercises, perfect for businesses in Kern County looking to strengthen their team dynamics. From collaborative VR experiences to multiplayer strategy games, we create memorable events that foster teamwork and communication.</p>
+                
+                <p>Located in the heart of Bakersfield, our center is more than just a gaming space – it's a community hub where gamers of all skill levels come together to play, compete, and connect. Join our regular tournaments, participate in local leagues, or simply enjoy casual gaming with friends in a comfortable, professionally managed environment.</p>
+                <h3>Hours of Operation</h3>
+                <ul>
+                    <li><strong>Sunday - Thursday:</strong> 12 P.M. - 11 P.M.</li>
+                    <li><strong>Friday &amp; Saturday:</strong> 12 P.M. - 12 A.M.</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Top Games Section -->
+        <section class="top-games">
+            <div class="container">
+                <h2>Top Games at Bakersfield eSports Center</h2>
+                <p>Experience the latest and most popular games in our premium gaming environment. From fast-paced esports titles to immersive single-player adventures, we offer a diverse selection of games across all platforms. Our game library is regularly updated to include new releases and community favorites.</p>
+                <div class="games-grid">
+                    <div class="games-row">
+                        <div class="game-item">
+                            <img src="images/game1.png" alt="Game 1" loading="lazy" width="150" height="150">
+                        </div>
+                        <div class="game-item">
+                            <img src="images/game2.png" alt="Game 2" loading="lazy" width="150" height="150">
+                        </div>
+                        <div class="game-item">
+                            <img src="images/game3.png" alt="Game 3" loading="lazy" width="150" height="150">
+                        </div>
+                        <div class="game-item">
+                            <img src="images/game4.png" alt="Game 4" loading="lazy" width="150" height="150">
+                        </div>
+                        <div class="game-item">
+                            <img src="images/game5.png" alt="Game 5" loading="lazy" width="150" height="150">
+                        </div>
+                    </div>
+                    <div class="games-row">
+                        <div class="game-item">
+                            <img src="images/game6.png" alt="Game 6" loading="lazy" width="150" height="150">
+                        </div>
+                        <div class="game-item">
+                            <img src="images/game7.png" alt="Game 7" loading="lazy" width="150" height="150">
+                        </div>
+                        <div class="game-item">
+                            <img src="images/game8.png" alt="Game 8" loading="lazy" width="150" height="150">
+                        </div>
+                        <div class="game-item">
+                            <img src="images/game9.png" alt="Game 9" loading="lazy" width="150" height="150">
+                        </div>
+                        <div class="game-item">
+                            <img src="images/game10.png" alt="Game 10" loading="lazy" width="150" height="150">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Partners Section -->
+        <section class="partners">
+            <div class="container">
+                <h2>Our Partners</h2>
+                <p>We're proud to partner with leading organizations in Bakersfield and beyond. These partnerships enable us to provide exceptional gaming experiences, support local events, and contribute to our community's growth. Together with our partners, we're building a stronger, more connected gaming ecosystem in Kern County.</p>
+                <div class="partner-logos">
+                    <a href="https://www.valleystrong.com" target="_blank">
+                        <img alt="Valley Strong Credit Union" src="images/ValleyStrong-ts1630115307.png" loading="lazy" width="200" height="100">
+                    </a>
+                    <a href="https://www.visitbakersfield.com/" target="_blank">
+                        <img alt="Visit Bakersfield" src="images/VisitBakersfieldWhite-ts1701147614.png" loading="lazy" width="200" height="100">
+                    </a>
+                    <a href="https://www.facebook.com/InnovativeBusinessDesigns/" target="_blank">
+                        <img alt="Innovative Advantage" src="images/Innovative%20Advantage%20Final%20Logo-ts1701147761.png" loading="lazy" width="200" height="100">
+                    </a>
+                    <a href="http://thebakersfieldfox.com/" target="_blank">
+                        <img alt="Bakersfield Fox Theater" src="images/Asset%202-ts1652421198.png" loading="lazy" width="200" height="100">
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Purchase Section -->
+        <section class="purchase">
+            <div class="container">
+                <h2>Gift Card</h2>
+                <!-- Stripe Buy Buttons -->
+                <div class="buy-buttons">
+                    <script async src="https://js.stripe.com/v3/buy-button.js"></script>
+                    <stripe-buy-button 
+                        buy-button-id="buy_btn_1PqgrFLWWKtj9NWo0PjQJCFu" 
+                        publishable-key="pk_live_51MTRSXLWWKtj9NWo8qGFretrkekt8FsjAtj5aArYGdeI4jwXGhjUnic5c0iD2KSOoVLF2KJ8RwIaMqtBXcsVmpQQ00JbMS3iZm">
+                    </stripe-buy-button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="social-media">
+                <h3>Follow Us on Social Media</h3>
+                <ul>
+                    <li>
+                        <a aria-label="Facebook" href="https://www.facebook.com/Bakersfield-ESports-104418741131608" target="_blank">
+                            <img alt="Facebook" src="images/social/facebook.png" loading="lazy" width="32" height="32">
+                        </a>
+                    </li>
+                    <li>
+                        <a aria-label="X" href="https://x.com/Bak_eSports" target="_blank">
+                            <img alt="X" src="images/social/x.png" loading="lazy" width="32" height="32">
+                        </a>
+                    </li>
+                    <li>
+                        <a aria-label="Instagram" href="https://www.instagram.com/bakersfieldesports" target="_blank">
+                            <img alt="Instagram" src="images/social/instagram.png" loading="lazy" width="32" height="32">
+                        </a>
+                    </li>
+                    <li>
+                        <a aria-label="Twitch" href="https://www.twitch.tv/bakersfieldesportscenter" target="_blank">
+                            <img alt="Twitch" src="images/social/twitch.png" loading="lazy" width="32" height="32">
+                        </a>
+                    </li>
+                    <li>
+                        <a aria-label="YouTube" href="https://www.youtube.com/channel/UCZvHOMf6jzLVp4Rf3A_fd1A" target="_blank">
+                            <img alt="YouTube" src="images/social/youtube.png" loading="lazy" width="32" height="32">
+                        </a>
+                    </li>
+                    <li>
+                        <a aria-label="TikTok" href="https://www.tiktok.com/@bakersfieldesportscenter" target="_blank">
+                            <img alt="TikTok" src="images/social/tiktok.png" loading="lazy" width="32" height="32">
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="contact-info">
+                <p><strong>Address:</strong> 7104 Golden State Hwy, Bakersfield, CA 93308</p>
+                <p><strong>Phone:</strong> <a href="tel:+16615297447">(661) 529-7447</a></p>
+            </div>
+            <p>&copy; 2025 <a href="https://bakersfieldesports.com">bakersfieldesports.com</a></p>
+        </div>
+    </footer>
+
+    <script>
+        document.getElementById('nav-toggle').onclick = function() {
+            var menu = document.getElementById('nav-menu');
+            menu.classList.toggle('active');
+        };
+    </script>
+    
+    <!-- Service Worker Registration -->
+    <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('/js/service-worker.js')
+                    .then(registration => {
+                        console.log('ServiceWorker registration successful');
+                    })
+                    .catch(error => {
+                        console.log('ServiceWorker registration failed:', error);
+                    });
+            });
+        }
+    </script>
+</body>
+</html>

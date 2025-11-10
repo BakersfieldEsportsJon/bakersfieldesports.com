@@ -1,0 +1,77 @@
+    <!-- Tournament Details Modal -->
+    <div id="tournamentModal" class="tournament-modal">
+        <div class="tournament-modal-overlay"></div>
+        <div class="tournament-modal-content">
+            <button class="tournament-modal-close" aria-label="Close modal">&times;</button>
+
+            <div class="tournament-modal-body">
+                <div class="tournament-modal-loading">
+                    <div class="spinner"></div>
+                    <p>Loading tournament details...</p>
+                </div>
+
+                <div class="tournament-modal-data" style="display: none;">
+                    <!-- Tournament Header -->
+                    <div class="tournament-modal-header">
+                        <h2 id="tournamentName"></h2>
+                        <div class="tournament-modal-meta">
+                            <div class="meta-item">
+                                <span class="meta-icon">📅</span>
+                                <span id="tournamentDate"></span>
+                            </div>
+                            <div class="meta-item">
+                                <span class="meta-icon">📍</span>
+                                <span id="tournamentLocation"></span>
+                            </div>
+                            <div class="meta-item">
+                                <span class="meta-icon">👥</span>
+                                <span id="tournamentAttendees"></span>
+                            </div>
+                        </div>
+                        <div id="registrationStatus" class="registration-status-modal"></div>
+                    </div>
+
+                    <!-- Tournament Description -->
+                    <div class="tournament-modal-section">
+                        <h3>About This Tournament</h3>
+                        <div id="tournamentDescription" class="tournament-description"></div>
+                    </div>
+
+                    <!-- Tournament Rules -->
+                    <div id="tournamentRulesSection" class="tournament-modal-section" style="display: none;">
+                        <h3>Rules & Format</h3>
+                        <div id="tournamentRules" class="tournament-rules"></div>
+                    </div>
+
+                    <!-- Events List -->
+                    <div class="tournament-modal-section">
+                        <h3>Events (<span id="eventCount">0</span>)</h3>
+                        <div id="tournamentEvents" class="tournament-events-list"></div>
+                    </div>
+
+                    <!-- Registration Section -->
+                    <div id="registrationSection" class="tournament-modal-section">
+                        <h3>Register for Tournament</h3>
+                        <div class="registration-info">
+                            <p>Click below to register on Start.gg. Registration will open in a new tab.</p>
+                            <a id="registerButton" href="#" class="btn btn-primary btn-large" target="_blank" rel="noopener noreferrer">
+                                Register on Start.gg →
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Registration Iframe (Alternative) -->
+                    <div id="registrationIframe" class="tournament-modal-section" style="display: none;">
+                        <h3>Register for Tournament</h3>
+                        <div class="iframe-container">
+                            <iframe id="startggIframe" frameborder="0" allowfullscreen></iframe>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tournament-modal-error" style="display: none;">
+                    <p>Sorry, we couldn't load the tournament details. Please try again later.</p>
+                </div>
+            </div>
+        </div>
+    </div>

@@ -1,0 +1,425 @@
+/**
+ * Stats Section Styles with Particles
+ * Bakersfield eSports - 2025
+ */
+
+/* ============================================
+   STATS SECTION
+   ============================================ */
+
+.stats-section {
+    position: relative;
+    padding: 5em 0;
+    margin-top: -3em; /* Overlap with hero section for seamless transition */
+    background: linear-gradient(135deg, #030202 0%, #1a0a0f 50%, #030202 100%);
+    overflow: hidden;
+    z-index: 1;
+}
+
+/* Animated gradient background */
+.stats-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(
+        45deg,
+        rgba(236, 25, 77, 0.1),
+        transparent,
+        rgba(236, 25, 77, 0.1)
+    );
+    background-size: 200% 200%;
+    animation: gradient-shift 15s ease infinite;
+    z-index: -1;
+}
+
+.stats-section .container {
+    position: relative;
+    z-index: 2;
+}
+
+/* ============================================
+   STATS HEADER
+   ============================================ */
+
+.stats-header {
+    text-align: center;
+    margin-bottom: 3em;
+}
+
+.stats-header h2 {
+    font-size: clamp(2rem, 5vw, 3rem);
+    color: var(--primary-color);
+    margin-bottom: 0.5em;
+    text-shadow: 0 0 20px rgba(236, 25, 77, 0.5);
+}
+
+.stats-header p {
+    font-size: 1.2rem;
+    opacity: 0.8;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* ============================================
+   STATS GRID
+   ============================================ */
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 columns on desktop = 2 rows */
+    gap: 2em;
+    margin-bottom: 3em;
+}
+
+@media (max-width: 992px) {
+    .stats-grid {
+        grid-template-columns: repeat(2, 1fr); /* 2 columns on tablet */
+    }
+}
+
+/* ============================================
+   STAT ITEM
+   ============================================ */
+
+.stat-item {
+    background: rgba(18, 18, 18, 0.8);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(236, 25, 77, 0.2);
+    border-radius: 15px;
+    padding: 2.5em 1.5em;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.stat-item:hover {
+    transform: translateY(-10px) scale(1.03);
+    border-color: rgba(236, 25, 77, 0.5);
+    box-shadow:
+        0 20px 40px rgba(0, 0, 0, 0.4),
+        0 0 30px rgba(236, 25, 77, 0.3),
+        inset 0 0 20px rgba(236, 25, 77, 0.1);
+}
+
+/* Glow effect on hover */
+.stat-item::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(
+        circle,
+        rgba(236, 25, 77, 0.15) 0%,
+        transparent 70%
+    );
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+
+.stat-item:hover::before {
+    opacity: 1;
+    animation: rotate-glow 3s linear infinite;
+}
+
+@keyframes rotate-glow {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* ============================================
+   STAT ICON
+   ============================================ */
+
+.stat-icon {
+    font-size: 3em;
+    margin-bottom: 0.3em;
+    filter: drop-shadow(0 0 10px rgba(236, 25, 77, 0.6));
+    /* Animation disabled */
+}
+
+.stat-item:hover .stat-icon {
+    /* No animation on hover */
+}
+
+/* ============================================
+   STAT NUMBER
+   ============================================ */
+
+.stat-number {
+    font-size: clamp(2.5rem, 5vw, 3.5rem);
+    font-weight: 900;
+    color: var(--primary-color);
+    line-height: 1;
+    margin-bottom: 0.3em;
+    text-shadow: 0 0 20px rgba(236, 25, 77, 0.5);
+    font-family: 'Fugaz One', sans-serif;
+}
+
+/* ============================================
+   STAT LABEL
+   ============================================ */
+
+.stat-label {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--light-color);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    opacity: 0.9;
+}
+
+.stat-sublabel {
+    font-size: 0.9rem;
+    opacity: 0.6;
+    margin-top: 0.3em;
+}
+
+/* ============================================
+   LIVE INDICATOR (for GGLeap stats)
+   ============================================ */
+
+.live-indicator {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5em;
+    font-size: 0.8rem;
+    color: #4CAF50;
+    margin-top: 0.5em;
+    font-weight: 600;
+}
+
+.live-indicator::before {
+    content: '';
+    width: 8px;
+    height: 8px;
+    background: #4CAF50;
+    border-radius: 50%;
+    animation: pulse-dot 2s ease-in-out infinite;
+    box-shadow: 0 0 10px #4CAF50;
+}
+
+@keyframes pulse-dot {
+    0%, 100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+    50% {
+        opacity: 0.5;
+        transform: scale(1.2);
+    }
+}
+
+/* ============================================
+   PARTICLES CANVAS
+   ============================================ */
+
+#particles-canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    pointer-events: none;
+}
+
+/* ============================================
+   LOADING STATE
+   ============================================ */
+
+.stat-item.loading .stat-number {
+    opacity: 0.3;
+}
+
+.stat-item.loading::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 30px;
+    height: 30px;
+    border: 3px solid rgba(236, 25, 77, 0.2);
+    border-top-color: var(--primary-color);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    transform: translate(-50%, -50%);
+}
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+
+@media (max-width: 768px) {
+    .stats-section {
+        padding: 3em 0;
+    }
+
+    .stats-grid {
+        grid-template-columns: repeat(2, 1fr); /* 2 columns on mobile */
+        gap: 1.5em;
+    }
+
+    .stat-item {
+        padding: 2em 1em;
+    }
+
+    .stat-icon {
+        font-size: 2.5em;
+    }
+
+    .stat-number {
+        font-size: clamp(2rem, 8vw, 2.5rem);
+    }
+
+    .stat-label {
+        font-size: 0.9rem;
+    }
+
+    /* Disable hover effects on mobile */
+    .stat-item:hover {
+        transform: translateY(-5px) scale(1.01);
+    }
+}
+
+@media (max-width: 480px) {
+    .stats-grid {
+        grid-template-columns: 1fr;
+        max-width: 300px;
+        margin: 0 auto 3em;
+    }
+}
+
+/* ============================================
+   SPECIAL STYLES
+   ============================================ */
+
+/* Featured stat (larger) */
+.stat-item.featured {
+    grid-column: span 2;
+    background: linear-gradient(135deg, rgba(236, 25, 77, 0.15), rgba(18, 18, 18, 0.8));
+}
+
+@media (max-width: 768px) {
+    .stat-item.featured {
+        grid-column: span 1;
+    }
+}
+
+/* Stat categories */
+.stat-category {
+    text-align: center;
+    margin: 4em 0 2em;
+}
+
+.stat-category h3 {
+    font-size: 1.8rem;
+    color: var(--primary-color);
+    margin-bottom: 0.5em;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.stat-category p {
+    opacity: 0.7;
+    margin-bottom: 2em;
+}
+
+/* ============================================
+   ANIMATIONS
+   ============================================ */
+
+.stats-section.animate-in .stat-item {
+    animation: stat-appear 0.6s ease-out forwards;
+    opacity: 0;
+}
+
+.stats-section.animate-in .stat-item:nth-child(1) { animation-delay: 0.1s; }
+.stats-section.animate-in .stat-item:nth-child(2) { animation-delay: 0.2s; }
+.stats-section.animate-in .stat-item:nth-child(3) { animation-delay: 0.3s; }
+.stats-section.animate-in .stat-item:nth-child(4) { animation-delay: 0.4s; }
+.stats-section.animate-in .stat-item:nth-child(5) { animation-delay: 0.5s; }
+.stats-section.animate-in .stat-item:nth-child(6) { animation-delay: 0.6s; }
+.stats-section.animate-in .stat-item:nth-child(7) { animation-delay: 0.7s; }
+.stats-section.animate-in .stat-item:nth-child(8) { animation-delay: 0.8s; }
+
+@keyframes stat-appear {
+    from {
+        opacity: 0;
+        transform: translateY(30px) scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+/* Compact Stats Section Override */
+.stats-section {
+    padding: 3em 0; /* Reduced from 5em */
+}
+
+.stats-header {
+    margin-bottom: 2em; /* Reduced from 3em */
+}
+
+.stats-header h2 {
+    font-size: clamp(1.5rem, 4vw, 2.2rem); /* Smaller */
+    margin-bottom: 0.3em;
+}
+
+.stats-header p {
+    font-size: 1rem; /* Smaller */
+}
+
+.stats-grid {
+    gap: 1.5em; /* Reduced from 2em */
+    margin-bottom: 2em; /* Reduced from 3em */
+}
+
+.stat-item {
+    padding: 1.5em 1em; /* Reduced from 2.5em 1.5em */
+}
+
+.stat-icon {
+    font-size: 2em; /* Reduced from 3em */
+    margin-bottom: 0.2em;
+}
+
+.stat-number {
+    font-size: clamp(2rem, 4vw, 2.8rem); /* Smaller */
+    margin-bottom: 0.2em;
+}
+
+.stat-label {
+    font-size: 0.95rem; /* Smaller */
+}
+
+.stat-sublabel {
+    font-size: 0.8rem;
+}
+
+.stat-category {
+    margin: 2em 0 1.5em; /* Reduced */
+}
+
+.stat-category h3 {
+    font-size: 1.4rem; /* Smaller */
+    margin-bottom: 0.3em;
+}
+
+.stat-category p {
+    font-size: 0.9rem;
+    margin-bottom: 1.5em;
+}
+
+/* Keep 3 columns on all desktop sizes for 2 rows layout */
+@media (min-width: 1200px) {
+    .stats-grid {
+        grid-template-columns: repeat(3, 1fr); /* Keep 3 columns = 2 rows */
+    }
+}

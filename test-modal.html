@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Test Tournament Modal</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="css/optimized.min.css" rel="stylesheet">
+    <link href="css/custom.css" rel="stylesheet">
+    <link href="css/tournament-modal.css" rel="stylesheet">
+    <style>
+        body {
+            padding: 50px;
+            background: #1a1a1a;
+            color: white;
+        }
+        .test-button {
+            background: #e94560;
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 18px;
+            margin: 10px;
+        }
+        .test-button:hover {
+            background: #d63851;
+        }
+        .test-section {
+            margin: 30px 0;
+            padding: 20px;
+            background: rgba(255,255,255,0.05);
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Tournament Modal Test Page</h1>
+
+    <div class="test-section">
+        <h2>Test 1: Check if Modal Exists</h2>
+        <button onclick="checkModalExists()" class="test-button">Check Modal Element</button>
+        <div id="test1-result"></div>
+    </div>
+
+    <div class="test-section">
+        <h2>Test 2: Check if JavaScript Loaded</h2>
+        <button onclick="checkJavaScriptLoaded()" class="test-button">Check JS Object</button>
+        <div id="test2-result"></div>
+    </div>
+
+    <div class="test-section">
+        <h2>Test 3: Open Modal with Test Slug</h2>
+        <button onclick="testOpenModal()" class="test-button">Open Modal (Test)</button>
+        <div id="test3-result"></div>
+    </div>
+
+    <div class="test-section">
+        <h2>Test 4: Test API Endpoint</h2>
+        <button onclick="testAPI()" class="test-button">Test API Call</button>
+        <div id="test4-result"></div>
+    </div>
+
+    <!-- Tournament Details Modal -->
+    <div id="tournamentModal" class="tournament-modal">
+        <div class="tournament-modal-overlay"></div>
+        <div class="tournament-modal-content">
+            <button class="tournament-modal-close" aria-label="Close modal">&times;</button>
+
+            <div class="tournament-modal-body">
+                <div class="tournament-modal-loading">
+                    <div class="spinner"></div>
+                    <p>Loading tournament details...</p>
+                </div>
+
+                <div class="tournament-modal-data" style="display: none;">
+                    <div class="tournament-modal-header">
+                        <h2 id="tournamentName"></h2>
+                        <div class="tournament-modal-meta">
+                            <div class="meta-item">
+                                <span class="meta-icon">📅</span>
+                                <span id="tournamentDate"></span>
+                            </div>
+                            <div class="meta-item">
+                                <span class="meta-icon">📍</span>
+                                <span id="tournamentLocation"></span>
+                            </div>
+                            <div class="meta-item">
+                                <span class="meta-icon">👥</span>
+                                <span id="tournamentAttendees"></span>
+                            </div>
+                        </div>
+                        <div id="registrationStatus" class="registration-status-modal"></div>
+                    </div>
+
+                    <div class="tournament-modal-section">
+                        <h3>About This Tournament</h3>
+                        <div id="tournamentDescription" class="tournament-description"></div>
+                    </div>
+
+                    <div id="tournamentRulesSection" class="tournament-modal-section" style="display: none;">
+                        <h3>Rules & Format</h3>
+                        <div id="tournamentRules" class="tournament-rules"></div>
+                    </div>
+
+                    <div class="tournament-modal-section">
+                        <h3>Events (<span id="eventCount">0</span>)</h3>
+                        <div id="tournamentEvents" class="tournament-events-list"></div>
+                    </div>
+
+                    <div id="registrationSection" class="tournament-modal-section">
+                        <h3>Register for Tournament</h3>
+                        <div class="registration-info">
+                            <p>Click below to register on Start.gg. Registration will open in a new tab.</p>
+                            <a id="registerButton" href="#" class="btn btn-primary btn-large" target="_blank" rel="noopener noreferrer">
+                                Register on Start.gg →
+                            </a>
+                        </div>
+                    </div>
+
+                    <div id="registrationIframe" class="tournament-modal-section" style="display: none;">
+                        <h3>Register for Tournament</h3>
+                        <div class="iframe-container">
+                            <iframe id="startggIframe" frameborder="0" allowfullscreen></iframe>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tournament-modal-error" style="display: none;">
+                    <p>Sorry, we couldn't load the tournament details. Please try again later.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="events/js/tournament-modal.js"></script>
+
+    <script>
+        function checkModalExists() {
+            const modal = document.getElementById('tournamentModal');
+            const result = document.getElementById('test1-result');
+            if (modal) {
+                result.innerHTML = '<p style="color: #00C851;">✓ Modal element found!</p>';
+            } else {
+                result.innerHTML = '<p style="color: #ff6b6b;">✗ Modal element NOT found</p>';
+            }
+        }
+
+        function checkJavaScriptLoaded() {
+            const result = document.getElementById('test2-result');
+            if (typeof window.tournamentModal !== 'undefined') {
+                result.innerHTML = '<p style="color: #00C851;">✓ tournamentModal object exists!</p>' +
+                    '<p>Methods available: ' + Object.keys(window.tournamentModal).join(', ') + '</p>';
+            } else {
+                result.innerHTML = '<p style="color: #ff6b6b;">✗ tournamentModal object NOT found</p>' +
+                    '<p>Check console for JavaScript errors</p>';
+            }
+        }
+
+        function testOpenModal() {
+            const result = document.getElementById('test3-result');
+            if (typeof window.tournamentModal !== 'undefined') {
+                result.innerHTML = '<p style="color: #00C851;">Attempting to open modal...</p>';
+                window.tournamentModal.open('test-tournament');
+            } else {
+                result.innerHTML = '<p style="color: #ff6b6b;">✗ tournamentModal not available</p>';
+            }
+        }
+
+        async function testAPI() {
+            const result = document.getElementById('test4-result');
+            result.innerHTML = '<p>Testing API...</p>';
+
+            try {
+                const response = await fetch('/api/tournament-details.php?slug=test');
+                const data = await response.json();
+
+                if (response.ok) {
+                    result.innerHTML = '<p style="color: #00C851;">✓ API responding</p>' +
+                        '<pre>' + JSON.stringify(data, null, 2) + '</pre>';
+                } else {
+                    result.innerHTML = '<p style="color: orange;">API returned error (expected if no tournaments):</p>' +
+                        '<pre>' + JSON.stringify(data, null, 2) + '</pre>';
+                }
+            } catch (error) {
+                result.innerHTML = '<p style="color: #ff6b6b;">✗ API Error: ' + error.message + '</p>';
+            }
+        }
+
+        // Auto-run tests on load
+        window.addEventListener('DOMContentLoaded', () => {
+            console.log('Test page loaded');
+            setTimeout(() => {
+                checkModalExists();
+                checkJavaScriptLoaded();
+            }, 500);
+        });
+    </script>
+</body>
+</html>

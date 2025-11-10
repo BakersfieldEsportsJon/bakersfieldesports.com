@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>About Us | Bakersfield eSports Center</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Meta Tags for SEO -->
+  <meta name="description" content="Learn more about Bakersfield eSports Center, your destination for gaming tournaments and events.">
+  <meta name="keywords" content="eSports, About Us, Gaming, Bakersfield, Events, Tournaments">
+  <meta name="robots" content="index, follow">
+  <meta name="author" content="Bakersfield eSports Center">
+
+  <!-- Open Graph Meta Tags -->
+  <meta property="og:title" content="About Us | Bakersfield eSports Center">
+  <meta property="og:description" content="Learn more about Bakersfield eSports Center, your destination for gaming tournaments and events.">
+  <meta property="og:image" content="https://bakersfieldesports.com/images/about-us-og-image.jpg">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://bakersfieldesports.com/About-Us/">
+
+  <!-- External CSS -->
+  <link rel="stylesheet" href="../css/styles.css">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Lato:400,900|Fugaz+One|Open+Sans:300,400,600,700,800&display=swap" rel="stylesheet">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="../images/favicons/favicon.png">
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <nav class="navbar">
+      <div class="container">
+        <a href="../index.html" class="logo">
+          <img src="../images/Asset%205-ts1621173277.png" alt="Bakersfield eSports Logo">
+        </a>
+        <button class="nav-toggle" aria-label="Toggle navigation">
+          <span></span>
+        </button>
+        <ul class="nav-menu">
+          <li><a href="../index.html">Home</a></li>
+          <li><a href="../Locations/index.html">Locations</a></li>
+          <li><a href="../Events/index.html">Events</a></li>
+          <li><a href="../Rates-Parties/index.html">Rates &amp; Parties</a></li>
+          <li><a href="../Partnerships/index.html">Partnerships</a></li>
+          <li><a href="index.html" class="active">About Us</a></li>
+          <li><a href="../Contact-Us/index.html">Contact Us</a></li>
+          <li><a href="https://discord.gg/jbzWH3ZvRp" target="_blank">Discord</a></li>
+          <li><a href="../STEM/index.html">STEM</a></li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Main Content -->
+  <main>
+
+    <!-- Hero Section -->
+    <section class="hero hero-about">
+      <div class="container">
+        <h1>About Us</h1>
+      </div>
+    </section>
+
+    <!-- Content Section -->
+    <section class="content">
+      <div class="container">
+        <p>We are Bakersfield's first locally owned and operated eSports and event center.</p>
+
+        <p>Our founders realized that our community needed a new and unique entertainment venue catering to gamers of all types. Whether it's the competitive eSports player, casual board gamer, tactical tabletop enthusiast, strategic TCG player, or anything in between—from the most experienced to those eager to learn.</p>
+
+        <p>Bakersfield eSports and Event Center is your one-stop destination for game tournaments or a relaxing night of gaming with friends.</p>
+
+        <p>Bring your passion, and we will supply the games!</p>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="social-media">
+        <h3>Follow Us on Social Media</h3>
+        <ul>
+          <li>
+            <a href="https://www.facebook.com/Bakersfield-ESports-104418741131608" target="_blank" aria-label="Facebook">
+              <img src="../images/social/facebook.png" alt="Facebook">
+            </a>
+          </li>
+          <li>
+            <a href="https://x.com/Bak_eSports" target="_blank" aria-label="X">
+              <img src="../images/social/x.png" alt="X">
+            </a>
+          </li>
+          <li>
+            <a href="https://www.instagram.com/bakersfieldesports" target="_blank" aria-label="Instagram">
+              <img src="../images/social/instagram.png" alt="Instagram">
+            </a>
+          </li>
+          <li>
+            <a href="https://www.twitch.tv/bakersfieldesportscenter" target="_blank" aria-label="Twitch">
+              <img src="../images/social/twitch.png" alt="Twitch">
+            </a>
+          </li>
+          <li>
+            <a href="https://www.youtube.com/channel/UCZvHOMf6jzLVp4Rf3A_fd1A" target="_blank" aria-label="YouTube">
+              <img src="../images/social/youtube.png" alt="YouTube">
+            </a>
+          </li>
+          <li>
+            <a href="https://www.tiktok.com/@bakersfieldesportscenter" target="_blank" aria-label="TikTok">
+              <img src="../images/social/tiktok.png" alt="TikTok">
+            </a>
+          </li>
+        </ul>
+      </div>
+      <p>&copy; 2024 <a href="https://bakersfieldesports.com">bakersfieldesports.com</a></p>
+    </div>
+  </footer>
+
+  <!-- External JavaScript -->
+  <script src="../scripts.js"></script>
+
+</body>
+</html>

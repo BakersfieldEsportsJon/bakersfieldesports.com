@@ -1,0 +1,7 @@
+Bakersfield Esports Discord Bot Setup
+
+1. Install Node.js (v16.9.0+)
+2. Run: npm install
+3. Copy .env.example to .env
+4. Fill in your Discord credentials
+5. Run: npm start

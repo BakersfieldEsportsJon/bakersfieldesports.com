@@ -1,0 +1,31 @@
+{
+  "name": "bakersfieldesports",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node bot.js",
+    "build:css": "node build-css.js",
+    "optimize:images": "node optimize-images.js images",
+    "minify-css": "cleancss -o css/min/styles.min.css css/*.css",
+    "lint:css": "stylelint \"**/*.css\" --fix",
+    "build": "npm run build:css && npm run optimize:images"
+  },
+  "author": "",
+  "license": "ISC",
+  "engines": {
+    "node": "20.x"
+  },
+  "dependencies": {
+    "discord.js": "^14.7.1",
+    "dotenv": "^16.0.3",
+    "node-fetch": "^2.6.7",
+    "sharp": "^0.33.5"
+  },
+  "devDependencies": {
+    "clean-css-cli": "^5.6.3",
+    "minify": "^13.0.0",
+    "stylelint": "^16.21.0",
+    "stylelint-config-standard": "^38.0.0"
+  }
+}

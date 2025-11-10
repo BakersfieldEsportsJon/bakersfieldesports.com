@@ -1,0 +1,227 @@
+/* Base styles */
+@import url("variables.css");
+
+/* Navigation fixes */
+.nav-toggle {
+    display: none;
+    background: none;
+    border: none;
+    color: var(--light-color);
+    font-size: 1.5rem;
+    cursor: pointer;
+    padding: 0.5em;
+}
+
+.nav-menu {
+    list-style: none;
+    display: flex;
+    align-items: center;
+}
+
+.nav-menu li {
+    margin: 0 0.5em;
+}
+
+.nav-menu a {
+    color: var(--light-color);
+    text-decoration: none;
+    font-weight: 600;
+    padding: 0.5em 1em;
+    white-space: nowrap;
+    transition: color 0.3s;
+}
+
+.nav-menu a:hover {
+    color: var(--primary-color);
+}
+
+/* Hero section fixes */
+.hero {
+    position: relative;
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    width: 100%;
+    padding: 4rem 2rem;
+    text-align: center;
+    color: #fff;
+    margin-bottom: 3rem;
+    min-height: 450px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgb(0 0 0 / 50%);
+}
+
+/* Game icons fixes */
+.game-item {
+    width: 120px;
+    height: 120px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--darker-bg);
+    border-radius: 8px;
+    overflow: hidden;
+    padding: 0.5em;
+    transition: transform 0.3s;
+    box-shadow: 0 2px 4px rgb(0 0 0 / 20%);
+}
+
+.game-item img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    width: auto;
+    height: auto;
+}
+
+/* Footer spacing fixes */
+footer {
+    background-color: var(--dark-bg);
+    color: var(--light-color);
+    padding: 1.5em 0;
+    margin-top: auto;
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1em;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75em;
+}
+
+.social-media h3 {
+    color: var(--primary-color);
+    margin-bottom: 0.5em;
+    font-size: 1.2em;
+    font-weight: 600;
+}
+
+.social-media ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 1em;
+    padding: 0;
+    margin-bottom: 0.5em;
+    flex-wrap: wrap;
+}
+
+.contact-info {
+    margin-bottom: 0.5em;
+}
+
+.contact-info p {
+    margin: 0.1em 0;
+    font-size: 0.95em;
+}
+
+/* Responsive adjustments */
+@media (width <= 768px) {
+    .nav-toggle {
+        display: block;
+        position: absolute;
+        right: 1rem;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+
+    .nav-menu {
+        flex-direction: column;
+        background-color: var(--dark-bg);
+        position: absolute;
+        top: 70px;
+        right: 0;
+        width: 100%;
+        padding: 1em 0;
+        display: none;
+    }
+
+    .nav-menu.active {
+        display: flex;
+    }
+
+    .nav-menu li {
+        margin: 0.25em 0;
+        width: 100%;
+        text-align: center;
+    }
+
+    .nav-menu a {
+        display: block;
+        padding: 0.75em;
+    }
+
+    .game-item {
+        width: 100px;
+        height: 100px;
+    }
+}
+
+@media (width <= 576px) {
+    .game-item {
+        width: 80px;
+        height: 80px;
+    }
+}
+
+/* Party Booking Enhancements */
+.important-notice {
+    background: linear-gradient(135deg, #ff6b6b 0%, #ee5a52 100%);
+    color: white;
+    padding: 1.5rem;
+    border-radius: 8px;
+    margin: 1.5rem 0;
+    border-left: 5px solid #ff4444;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.important-notice h3 {
+    margin: 0 0 0.5rem 0;
+    font-size: 1.2rem;
+    font-weight: 700;
+}
+
+.important-notice p {
+    margin: 0;
+    font-size: 1rem;
+    line-height: 1.5;
+}
+
+.form-help {
+    display: block;
+    font-size: 0.875rem;
+    color: #666;
+    margin-top: 0.25rem;
+    font-style: italic;
+}
+
+.form-input[readonly],
+.form-input:disabled {
+    background-color: #f5f5f5;
+    cursor: not-allowed;
+    opacity: 0.7;
+}
+
+@media (width <= 768px) {
+    .important-notice {
+        padding: 1rem;
+    }
+
+    .important-notice h3 {
+        font-size: 1.1rem;
+    }
+
+    .important-notice p {
+        font-size: 0.95rem;
+    }
+}

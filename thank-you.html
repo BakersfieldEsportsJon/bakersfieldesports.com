@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bakersfield eSports – Thank You</title>
+  <style>
+    /* Same styling as the opt-in page for visual consistency */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    }
+    body {
+      background-color: #0a0a0a;
+      color: #f5f5f5;
+      line-height: 1.6;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+    header {
+      background-color: #000000;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+    }
+    .logo {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: #f0135d;
+      text-decoration: none;
+    }
+    nav a {
+      color: #f5f5f5;
+      text-decoration: none;
+      margin-left: 1.5rem;
+      font-size: 1rem;
+      transition: color 0.3s ease;
+    }
+    nav a:hover {
+      color: #f0135d;
+    }
+    main {
+      flex: 1;
+      max-width: 800px;
+      width: 90%;
+      margin: 2rem auto;
+      padding: 2rem;
+      background-color: rgba(255, 255, 255, 0.05);
+      border-radius: 8px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      text-align: center;
+    }
+    h1 {
+      font-size: 2.2rem;
+      margin-bottom: 1rem;
+      color: #f0135d;
+    }
+    p {
+      font-size: 1.2rem;
+      margin-bottom: 2rem;
+      color: #cccccc;
+    }
+    .btn-home {
+      display: inline-block;
+      padding: 0.8rem 1.5rem;
+      background-color: #f0135d;
+      color: #ffffff;
+      text-decoration: none;
+      border-radius: 4px;
+      font-size: 1rem;
+      transition: background-color 0.3s ease;
+    }
+    .btn-home:hover {
+      background-color: #c00048;
+    }
+    .footer {
+      text-align: center;
+      padding: 1rem;
+      font-size: 0.85rem;
+      color: #777777;
+    }
+  </style>
+</head>
+<body>
+  <header>
+                   <a class="logo" href="index.html">
+                    <img alt="Bakersfield eSports Logo" src="images/Asset%205-ts1621173277.png" width="200" height="80">
+    <nav>
+      <a href="/">Home</a>
+    </nav>
+  </header>
+  <main>
+    <h1>Thank You!</h1>
+    <p>
+      Your subscription was successful. We appreciate your interest and will keep you
+      informed about upcoming tournaments, events and special offers at Bakersfield eSports Center.
+    </p>
+    <a class="btn-home" href="/">Return to Home</a>
+  </main>
+  <footer class="footer">
+    &copy; <span id="year"></span> Bakersfield eSports Center. All rights reserved.
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>

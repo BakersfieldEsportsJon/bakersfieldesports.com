@@ -1,0 +1,25 @@
+/* Custom overrides for tournament modal */
+
+/* Hide the attendees/registered count in header */
+.tournament-modal-meta .meta-item:has(.meta-icon:contains("👥")) {
+    display: none !important;
+}
+
+/* Alternative - hide by checking text content */
+#tournamentAttendees {
+    display: none !important;
+}
+
+.tournament-modal-meta .meta-item:nth-child(3) {
+    display: none !important;
+}
+
+/* Hide entrants count in event cards */
+.event-detail:has(strong:contains("Entrants")) {
+    display: none !important;
+}
+
+/* More specific - hide first event-detail which is always Entrants */
+.tournament-event-details .event-detail:first-child {
+    display: none !important;
+}

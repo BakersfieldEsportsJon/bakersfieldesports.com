@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Debug Events Loading</title>
+    <style>
+        body { font-family: monospace; padding: 20px; background: #1a1a1a; color: #fff; }
+        .section { background: #2a2a2a; padding: 15px; margin: 10px 0; border-radius: 5px; }
+        .success { color: #00C851; }
+        .error { color: #ff6b6b; }
+        pre { background: #000; padding: 10px; overflow-x: auto; }
+        button { padding: 10px 20px; margin: 5px; cursor: pointer; }
+    </style>
+</head>
+<body>
+    <h1>Events Loading Debug</h1>
+
+    <div class="section">
+        <h2>Test 1: Direct API Call</h2>
+        <button onclick="testAPI()">Test API</button>
+        <div id="api-result"></div>
+    </div>
+
+    <div class="section">
+        <h2>Test 2: From Events Page Path</h2>
+        <button onclick="testRelativePath()">Test ../api Path</button>
+        <div id="relative-result"></div>
+    </div>
+
+    <div class="section">
+        <h2>Test 3: Tournament Modal</h2>
+        <button onclick="testModal()">Check Modal</button>
+        <div id="modal-result"></div>
+    </div>
+
+    <div class="section">
+        <h2>Test 4: Extract Tournament Slug</h2>
+        <button onclick="testSlugExtraction()">Test Slug Extraction</button>
+        <div id="slug-result"></div>
+    </div>
+
+    <script>
+        async function testAPI() {
+            const result = document.getElementById('api-result');
+            result.innerHTML = '<p>Testing...</p>';
+
+            try {
+                const response = await fetch('/bakersfield/api/startgg-events.php');
+                const data = await response.json();
+
+                result.innerHTML = `
+                    <p class="success">✓ API responded with ${data.events?.length || 0} events</p>
+                    <pre>${JSON.stringify(data, null, 2)}</pre>
+                `;
+            } catch (error) {
+                result.innerHTML = `<p class="error">✗ Error: ${error.message}</p>`;
+            }
+        }
+
+        async function testRelativePath() {
+            const result = document.getElementById('relative-result');
+            result.innerHTML = '<p>Testing...</p>';
+
+            try {
+                // Simulate path from events/index.php
+                const response = await fetch('../api/startgg-events.php');
+                const data = await response.json();
+
+                result.innerHTML = `
+                    <p class="success">✓ Relative path works! ${data.events?.length || 0} events</p>
+                    <pre>${JSON.stringify(data, null, 2).substring(0, 500)}...</pre>
+                `;
+            } catch (error) {
+                result.innerHTML = `<p class="error">✗ Error: ${error.message}</p>`;
+            }
+        }
+
+        function testModal() {
+            const result = document.getElementById('modal-result');
+
+            if (typeof window.tournamentModal !== 'undefined') {
+                result.innerHTML = '<p class="success">✓ Modal object exists</p>' +
+                    '<pre>' + Object.keys(window.tournamentModal).join(', ') + '</pre>';
+            } else {
+                result.innerHTML = '<p class="error">✗ Modal not loaded</p>';
+            }
+        }
+
+        function testSlugExtraction() {
+            const result = document.getElementById('slug-result');
+
+            const testSlug = "tournament/fortnite-battle-royale-pc-tournament-1/event/fortnite-battle-royale-tournament";
+            const matches = testSlug.match(/tournament\/([^\/]+)/);
+
+            if (matches && matches[1]) {
+                result.innerHTML = `
+                    <p class="success">✓ Slug extraction works!</p>
+                    <p>Input: ${testSlug}</p>
+                    <p>Extracted: ${matches[1]}</p>
+                `;
+            } else {
+                result.innerHTML = '<p class="error">✗ Slug extraction failed</p>';
+            }
+        }
+
+        // Auto-run tests
+        window.addEventListener('load', () => {
+            testAPI();
+            testModal();
+            testSlugExtraction();
+        });
+    </script>
+</body>
+</html>

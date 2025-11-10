@@ -1,0 +1,9 @@
+{
+    "totalAccounts": 5804,
+    "newAccountsToday": 8,
+    "timestamp": 1761528962,
+    "using_fallback": false,
+    "last_updated": "2025-10-27 02:36:02",
+    "processing_time_seconds": 3.89,
+    "note": "User counts only (gaming hours not available due to API limits)"
+}

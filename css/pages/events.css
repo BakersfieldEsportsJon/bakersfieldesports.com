@@ -1,0 +1,92 @@
+/* Events Page Specific Styles */
+.events-hero {
+  background-image: url('../images/events-bg.jpg');
+  background-position: center;
+  background-size: cover;
+  min-height: 400px;
+}
+
+.events-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  padding: 2rem 0;
+}
+
+.event-card {
+  background-color: var(--dark-bg);
+  border-radius: 10px;
+  overflow: hidden;
+  transition: transform 0.3s ease;
+}
+
+.event-card:hover {
+  transform: translateY(-5px);
+}
+
+.event-image {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.event-content {
+  padding: 1.5rem;
+}
+
+.event-date {
+  color: var(--primary-color);
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.event-title {
+  margin-bottom: 1rem;
+}
+
+.event-details {
+  color: var(--light-color);
+  opacity: 0.8;
+  margin-bottom: 1rem;
+}
+
+.event-actions {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.calendar-section {
+  padding: 4rem 0;
+}
+
+.calendar-container {
+  background-color: var(--dark-bg);
+  padding: 2rem;
+  border-radius: 10px;
+}
+
+.fc-event {
+  background-color: var(--primary-color);
+  border: none;
+  padding: 0.5rem;
+  border-radius: 5px;
+}
+
+.fc-event:hover {
+  background-color: var(--primary-hover);
+}
+
+@media (width <= 768px) {
+  .events-hero {
+    min-height: 300px;
+  }
+  
+  .events-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .event-actions {
+    flex-direction: column;
+  }
+}

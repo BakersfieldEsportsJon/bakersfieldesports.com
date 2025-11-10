@@ -1,0 +1,68 @@
+{
+    "top_games": [
+        {
+            "name": "Roblox",
+            "app_uuid": "3d4ef3b8-49da-4129-9d83-621a8ed7388e",
+            "launches": 282,
+            "image_url": "https:\/\/media.ggleap.com\/app_assets\/3d4ef3b8-49da-4129-9d83-621a8ed7388e\/600x900.jpg"
+        },
+        {
+            "name": "Fortnite",
+            "app_uuid": "12f00466-51e3-48c6-84d0-fe6b078f8afa",
+            "launches": 201,
+            "image_url": "https:\/\/media.ggleap.com\/app_assets\/12f00466-51e3-48c6-84d0-fe6b078f8afa\/600x900.jpg"
+        },
+        {
+            "name": "Minecraft",
+            "app_uuid": "f491fab0-6d7b-4f50-9584-4ddd033f4eda",
+            "launches": 102,
+            "image_url": "https:\/\/media.ggleap.com\/app_assets\/f491fab0-6d7b-4f50-9584-4ddd033f4eda\/600x900.jpg"
+        },
+        {
+            "name": "Call Of Duty Warzone",
+            "app_uuid": "acc33996-6af4-40dc-850c-e1f00bc86371",
+            "launches": 87,
+            "image_url": "https:\/\/media.ggleap.com\/app_assets\/acc33996-6af4-40dc-850c-e1f00bc86371\/600x900.jpg"
+        },
+        {
+            "name": "Mortal Kombat 1",
+            "app_uuid": "801f4833-3d88-4bff-aa50-f99f579b3658",
+            "launches": 78,
+            "image_url": "https:\/\/media.ggleap.com\/app_assets\/801f4833-3d88-4bff-aa50-f99f579b3658\/600x900.jpg"
+        },
+        {
+            "name": "Valorant",
+            "app_uuid": "5783f1f7-02a0-4ffe-8521-bd1e14f825b7",
+            "launches": 71,
+            "image_url": "https:\/\/media.ggleap.com\/app_assets\/5783f1f7-02a0-4ffe-8521-bd1e14f825b7\/600x900.jpg"
+        },
+        {
+            "name": "League Of Legends",
+            "app_uuid": "0c20c601-2bd6-4e4d-92f5-e5511a0e7ba5",
+            "launches": 62,
+            "image_url": "https:\/\/media.ggleap.com\/app_assets\/0c20c601-2bd6-4e4d-92f5-e5511a0e7ba5\/600x900.jpg"
+        },
+        {
+            "name": "Call of Duty Modern Warfare II",
+            "app_uuid": "3ccb0f19-e146-40bc-88c4-67e1115b889f",
+            "launches": 59,
+            "image_url": "https:\/\/media.ggleap.com\/app_assets\/3ccb0f19-e146-40bc-88c4-67e1115b889f\/600x900.jpg"
+        },
+        {
+            "name": "Among Us",
+            "app_uuid": "9685e169-2303-4a61-9120-449e0eddd1f0",
+            "launches": 43,
+            "image_url": "https:\/\/media.ggleap.com\/app_assets\/9685e169-2303-4a61-9120-449e0eddd1f0\/600x900.jpg"
+        },
+        {
+            "name": "Party Animals",
+            "app_uuid": "9513fef2-0be3-4af3-bf7a-0bd7f8c173e1",
+            "launches": 39,
+            "image_url": "https:\/\/media.ggleap.com\/app_assets\/9513fef2-0be3-4af3-bf7a-0bd7f8c173e1\/600x900.jpg"
+        }
+    ],
+    "timeframe": "ThisMonth",
+    "timestamp": 1761530763,
+    "last_updated": "2025-10-27 03:06:03",
+    "processing_time_seconds": 8.44
+}

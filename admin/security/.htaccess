@@ -1,0 +1,53 @@
+# Protect security dashboard directory
+Options -Indexes
+
+# Require authentication
+AuthType Basic
+AuthName "Security Dashboard Access"
+Require valid-user
+
+# Only allow access to specific files
+<FilesMatch "^(security_dashboard\.php|maintenance\.html)$">
+    Order allow,deny
+    Allow from all
+</FilesMatch>
+
+# Block direct access to includes directory
+<FilesMatch "^.*\.php$">
+    Order deny,allow
+    Deny from all
+</FilesMatch>
+
+# Maintenance mode redirect (uncomment during updates)
+#ErrorDocument 503 /admin/security/maintenance.html
+#RewriteEngine On
+#RewriteCond %{REQUEST_URI} !=/admin/security/maintenance.html
+#RewriteRule .* - [R=503,L]
+
+# Security headers
+<IfModule mod_headers.c>
+    Header set X-Content-Type-Options "nosniff"
+    Header set X-Frame-Options "DENY"
+    Header set X-XSS-Protection "1; mode=block"
+    Header set Content-Security-Policy "default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline'; img-src 'self' data:;"
+</IfModule>
+
+# Prevent access to sensitive files
+<FilesMatch "^(README\.md|DEPLOYMENT\.md|\.git)">
+    Order allow,deny
+    Deny from all
+</FilesMatch>
+
+# Block suspicious requests
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteCond %{REQUEST_METHOD} ^(HEAD|TRACE|DELETE|TRACK|DEBUG) [NC]
+    RewriteRule ^(.*)$ - [F,L]
+</IfModule>
+
+# Custom error pages
+ErrorDocument 400 /400.shtml
+ErrorDocument 401 /401.shtml
+ErrorDocument 403 /403.shtml
+ErrorDocument 404 /404.shtml
+ErrorDocument 500 /500.shtml

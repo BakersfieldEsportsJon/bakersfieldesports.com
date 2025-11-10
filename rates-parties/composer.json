@@ -1,0 +1,6 @@
+{
+    "name": "jonat/rates-parties",
+    "require": {
+        "stripe/stripe-php": "^16.4"
+    }
+}

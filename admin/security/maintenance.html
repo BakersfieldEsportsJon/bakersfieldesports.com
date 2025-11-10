@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Security Dashboard Maintenance</title>
+    <link rel="stylesheet" href="../../css/styles.css">
+    <link rel="stylesheet" href="../../css/admin.css">
+    <style>
+        .maintenance-container {
+            max-width: 600px;
+            margin: 100px auto;
+            padding: 2em;
+            text-align: center;
+            background-color: var(--dark-bg);
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+        }
+
+        .maintenance-icon {
+            font-size: 48px;
+            margin-bottom: 1em;
+            color: var(--primary-color);
+        }
+
+        .maintenance-title {
+            color: var(--light-color);
+            margin-bottom: 1em;
+        }
+
+        .maintenance-message {
+            color: var(--light-color);
+            margin-bottom: 2em;
+            line-height: 1.6;
+        }
+
+        .maintenance-status {
+            padding: 1em;
+            background-color: var(--darker-bg);
+            border-radius: 5px;
+            margin-bottom: 1em;
+        }
+
+        .maintenance-time {
+            color: #888;
+            font-size: 0.9em;
+        }
+
+        .return-link {
+            display: inline-block;
+            margin-top: 2em;
+            padding: 0.75em 1.5em;
+            background-color: var(--primary-color);
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .return-link:hover {
+            background-color: var(--hover-color);
+        }
+    </style>
+</head>
+<body>
+    <div class="maintenance-container">
+        <div class="maintenance-icon">🔧</div>
+        <h1 class="maintenance-title">Security Dashboard Maintenance</h1>
+        <p class="maintenance-message">
+            We're currently updating the security monitoring system to provide enhanced features and improved performance. This maintenance is scheduled and should be completed shortly.
+        </p>
+        <div class="maintenance-status">
+            System update in progress...
+        </div>
+        <div class="maintenance-time">
+            Estimated completion: 5-10 minutes
+        </div>
+        <a href="../dashboard.php" class="return-link">Return to Admin Dashboard</a>
+    </div>
+</body>
+</html>

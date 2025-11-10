@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Test StartGG Script Loading</title>
+    <style>
+        body { font-family: Arial; padding: 20px; background: #1a1a1a; color: white; }
+        #startgg-events-container { margin: 20px 0; }
+        .event-item { background: #2a2a2a; padding: 15px; margin: 10px 0; border-radius: 5px; }
+    </style>
+</head>
+<body>
+    <h1>Direct Script Test</h1>
+    <p>This should load tournaments directly...</p>
+
+    <div id="startgg-events-container">
+        <div class="loading-tournaments">
+            <p>Loading tournaments...</p>
+        </div>
+    </div>
+
+    <div id="console-output" style="margin-top: 20px; padding: 15px; background: #000; border-radius: 5px;">
+        <h3>Console Output:</h3>
+        <pre id="log"></pre>
+    </div>
+
+    <script>
+        // Intercept console.log
+        const originalLog = console.log;
+        const originalError = console.error;
+        const logEl = document.getElementById('log');
+
+        console.log = function(...args) {
+            originalLog.apply(console, args);
+            logEl.textContent += args.join(' ') + '\n';
+        };
+
+        console.error = function(...args) {
+            originalError.apply(console, args);
+            logEl.textContent += 'ERROR: ' + args.join(' ') + '\n';
+        };
+
+        console.log('Starting test...');
+        console.log('Container exists:', document.getElementById('startgg-events-container') !== null);
+    </script>
+
+    <!-- Load the actual script -->
+    <script src="../js/startgg-events.js"></script>
+
+    <script>
+        setTimeout(() => {
+            const container = document.getElementById('startgg-events-container');
+            console.log('After 2 seconds, container innerHTML length:', container.innerHTML.length);
+            console.log('Still loading?', container.innerHTML.includes('Loading'));
+        }, 2000);
+    </script>
+</body>
+</html>
