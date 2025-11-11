@@ -21,7 +21,7 @@ $CACHE_MAX_AGE = 86400; // 24 hours (daily refresh)
 function getFallbackStats() {
     return [
         'totalAccounts' => 5804,
-        'newAccountsToday' => 8,
+        'newAccountsLast30Days' => 45,
         'timestamp' => time(),
         'using_fallback' => true,
         'message' => 'Using fallback data - update in progress'

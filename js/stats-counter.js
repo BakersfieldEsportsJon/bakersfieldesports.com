@@ -26,7 +26,7 @@
             refreshInterval: 300000, // Refresh every 5 minutes (300000ms)
             fallbackValues: {
                 totalAccounts: 5801,
-                newAccountsToday: 8
+                newAccountsLast30Days: 45
             }
         },
 
@@ -213,7 +213,7 @@
 
                 // Update stat elements with GGLeap data
                 this.updateStatElement('ggleap-accounts', stats.totalAccounts);
-                this.updateStatElement('ggleap-new-accounts', stats.newAccountsToday);
+                this.updateStatElement('ggleap-new-accounts', stats.newAccountsLast30Days);
 
                 console.log('✅ GGLeap stats loaded:', stats);
 

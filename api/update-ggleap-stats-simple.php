@@ -156,21 +156,28 @@ function fetchTotalUsers($config, $jwtToken) {
 }
 
 // ============================================
-// FETCH NEW PLAYERS THIS WEEK
+// FETCH NEW PLAYERS LAST 30 DAYS
 // ============================================
 
-function fetchNewPlayersThisWeek($config, $jwtToken) {
-    logMessage("Fetching new players in last 7 days...");
+function fetchNewPlayersLast30Days($config, $jwtToken) {
+    logMessage("Fetching new players in last 30 days...");
 
     $uniqueUsers = [];
     $paginationToken = null;
     $page = 0;
 
+    // Calculate date range (last 30 days)
+    $endDate = gmdate('Y-m-d\TH:i:s\Z'); // Now in UTC
+    $startDate = gmdate('Y-m-d\TH:i:s\Z', strtotime('-30 days')); // 30 days ago
+
+    logMessage("Date range: $startDate to $endDate");
+
     do {
         $page++;
         $url = $config['api_base_url'] . '/activity-logs/search';
         $params = [
-            'TimeFrameType' => 'Last7Days',
+            'Start' => $startDate,
+            'End' => $endDate,
             'Limit' => 500,
             'Actions[]' => 'CreatedUser',
             'GuestOnly' => 'false'
@@ -193,15 +200,20 @@ function fetchNewPlayersThisWeek($config, $jwtToken) {
             }
         }
 
+        logMessage("Page $page: Found " . count($response['Entries']) . " entries (unique users so far: " . count($uniqueUsers) . ")");
+
         $paginationToken = $response['PaginationToken'] ?? null;
 
-        // Safety: max 10 pages
-        if ($page >= 10) break;
+        // Safety: max 10 pages (should handle ~5000 new users in 30 days)
+        if ($page >= 10) {
+            logMessage("Reached max page limit (10 pages)");
+            break;
+        }
 
     } while ($paginationToken);
 
     $count = count($uniqueUsers);
-    logMessage("New players in last 7 days: $count");
+    logMessage("New players in last 30 days: $count");
 
     return $count;
 }
@@ -224,13 +236,13 @@ try {
     // Step 2: Fetch total users
     $totalUsers = fetchTotalUsers($GGLEAP_CONFIG, $jwtToken);
 
-    // Step 3: Fetch new players this week
-    $newPlayersThisWeek = fetchNewPlayersThisWeek($GGLEAP_CONFIG, $jwtToken);
+    // Step 3: Fetch new players in last 30 days
+    $newPlayersLast30Days = fetchNewPlayersLast30Days($GGLEAP_CONFIG, $jwtToken);
 
     // Step 4: Compile stats
     $stats = [
         'totalAccounts' => $totalUsers,
-        'newAccountsToday' => $newPlayersThisWeek,
+        'newAccountsLast30Days' => $newPlayersLast30Days,
         'timestamp' => time(),
         'using_fallback' => false,
         'last_updated' => date('Y-m-d H:i:s'),
@@ -248,7 +260,7 @@ try {
 
     logMessage("Stats cached successfully");
     logMessage("Total accounts: {$stats['totalAccounts']}");
-    logMessage("New players in last 7 days: {$stats['newAccountsToday']}");
+    logMessage("New players in last 30 days: {$stats['newAccountsLast30Days']}");
 
     $duration = round(microtime(true) - $startTime, 2);
     logMessage("=== Update Complete in {$duration} seconds ===");
