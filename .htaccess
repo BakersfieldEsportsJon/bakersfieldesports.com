@@ -4,10 +4,6 @@ Options -MultiViews
 DirectoryIndex index.html index.php
 
 RewriteEngine On
-# Bare root hits index.php (no listing)
-RewriteRule ^$ index.html [L]
-# One canonical home URL
-RewriteRule ^index(\.html)?/?$ / [R=301,L]
 
 # Enable Compression
 <IfModule mod_deflate.c>
@@ -104,9 +100,6 @@ ErrorDocument 500 /500.shtml
 RewriteEngine On
 # RewriteCond %{HTTP_HOST} ^www\.(.*)$ [NC]
 # RewriteRule ^(.*)$ https://%1/$1 [R=301,L]
-# 
-# Canonicalize home to /
-RewriteRule ^index(\.php)?/?$ / [R=301,L]
 # # Force HTTPS
 # RewriteCond %{HTTPS} off
 # RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
