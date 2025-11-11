@@ -13,7 +13,7 @@ $active_page = $active_page ?? '';
 // Navigation items
 $nav_items = [
     'home' => ['url' => $base_path . 'index.html', 'label' => 'Home'],
-    'locations' => ['url' => $base_path . 'locations/index.html', 'label' => 'Locations'],
+    'locations' => ['url' => $base_path . 'locations/', 'label' => 'Locations'],
     'events' => ['url' => $base_path . 'events/', 'label' => 'Events'],
     'rates' => ['url' => $base_path . 'rates-parties/index.html', 'label' => 'Rates &amp; Parties'],
     'partnerships' => ['url' => $base_path . 'partnerships/index.html', 'label' => 'Partnerships'],
