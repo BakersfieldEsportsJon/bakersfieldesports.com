@@ -30,22 +30,44 @@
                 {
                     "featureType": "all",
                     "elementType": "geometry",
-                    "stylers": [{"color": "#f5f5f5"}]
+                    "stylers": [{"color": "#1a1a1a"}]
+                },
+                {
+                    "featureType": "all",
+                    "elementType": "labels.text.fill",
+                    "stylers": [{"color": "#888888"}]
+                },
+                {
+                    "featureType": "all",
+                    "elementType": "labels.text.stroke",
+                    "stylers": [{"color": "#000000"}]
                 },
                 {
                     "featureType": "water",
                     "elementType": "geometry",
-                    "stylers": [{"color": "#c9e7ff"}]
+                    "stylers": [{"color": "#2c3e50"}]
+                },
+                {
+                    "featureType": "road",
+                    "elementType": "geometry",
+                    "stylers": [{"color": "#2c2c2c"}]
                 },
                 {
                     "featureType": "poi",
                     "elementType": "labels.icon",
                     "stylers": [{"visibility": "off"}]
+                },
+                {
+                    "featureType": "poi",
+                    "elementType": "geometry",
+                    "stylers": [{"color": "#222222"}]
                 }
             ],
-            mapTypeControl: true,
-            streetViewControl: true,
-            fullscreenControl: true
+            mapTypeControl: false,
+            streetViewControl: false,
+            fullscreenControl: false,
+            zoomControl: true,
+            disableDefaultUI: false
         });
 
         // Custom marker icon
@@ -204,8 +226,9 @@
         const currentTime = hour * 60 + minute;
 
         const statusElement = document.getElementById('location-status');
+        const headerStatusElement = document.getElementById('header-status');
         const statusDetail = document.getElementById('status-detail');
-        const statusBadges = document.querySelectorAll('.status-badge');
+        const statusBadges = document.querySelectorAll('.status-badge, .status-indicator');
 
         let isOpen = false;
         let closeTime = '';
@@ -223,15 +246,17 @@
 
         // Update status display
         if (isOpen) {
-            statusElement.textContent = 'Open Now';
-            statusDetail.textContent = `Closes at ${closeTime}`;
+            if (statusElement) statusElement.textContent = 'Open Now';
+            if (headerStatusElement) headerStatusElement.textContent = 'Open Now';
+            if (statusDetail) statusDetail.textContent = `Closes at ${closeTime}`;
 
             statusBadges.forEach(badge => {
                 badge.classList.remove('status-closed');
                 badge.classList.add('status-open');
             });
         } else {
-            statusElement.textContent = 'Closed';
+            if (statusElement) statusElement.textContent = 'Closed';
+            if (headerStatusElement) headerStatusElement.textContent = 'Closed';
 
             // Calculate next opening time
             const openTime = new Date(now);
@@ -245,7 +270,7 @@
             }
 
             const tomorrow = now.getDate() !== openTime.getDate();
-            statusDetail.textContent = tomorrow ? 'Opens tomorrow at 12:00 PM' : 'Opens today at 12:00 PM';
+            if (statusDetail) statusDetail.textContent = tomorrow ? 'Opens tomorrow at 12:00 PM' : 'Opens today at 12:00 PM';
 
             statusBadges.forEach(badge => {
                 badge.classList.remove('status-open');

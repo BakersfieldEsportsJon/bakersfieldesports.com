@@ -44,7 +44,7 @@ RewriteEngine On
 
 # Set Security Headers
 <IfModule mod_headers.c>
-    Header set Content-Security-Policy "default-src 'self'; script-src 'self' 'unsafe-inline' www.googletagmanager.com connect.facebook.net js.stripe.com; style-src 'self' 'unsafe-inline' fonts.googleapis.com; font-src 'self' fonts.gstatic.com; connect-src 'self' *.google-analytics.com *.facebook.com *.doubleclick.net *.stripe.com; frame-src 'self' js.stripe.com checkout.stripe.com *.facebook.com *.start.gg; child-src 'self' js.stripe.com checkout.stripe.com; img-src 'self' data: *.facebook.com *.google-analytics.com *.doubleclick.net *.ggleap.com *.start.gg via.placeholder.com; worker-src 'self'; manifest-src 'self'; frame-ancestors 'none'; form-action 'self'; base-uri 'self';"
+    Header set Content-Security-Policy "default-src 'self'; script-src 'self' 'unsafe-inline' www.googletagmanager.com connect.facebook.net js.stripe.com *.googleapis.com maps.googleapis.com; style-src 'self' 'unsafe-inline' fonts.googleapis.com; font-src 'self' fonts.gstatic.com; connect-src 'self' *.google-analytics.com *.facebook.com *.doubleclick.net *.stripe.com *.googleapis.com; frame-src 'self' js.stripe.com checkout.stripe.com *.facebook.com *.start.gg *.google.com; child-src 'self' js.stripe.com checkout.stripe.com; img-src 'self' data: *.facebook.com *.google-analytics.com *.doubleclick.net *.ggleap.com *.start.gg *.googleapis.com *.gstatic.com via.placeholder.com; worker-src 'self'; manifest-src 'self'; frame-ancestors 'none'; form-action 'self'; base-uri 'self';"
     Header set X-Content-Type-Options "nosniff"
     Header set X-XSS-Protection "1; mode=block"
     Header set X-Frame-Options "SAMEORIGIN"

@@ -28,7 +28,7 @@ $current_location = [
         'Sun-Thu' => '12:00 PM - 11:00 PM',
         'Fri-Sat' => '12:00 PM - 12:00 AM'
     ],
-    'amenities' => ['WiFi', 'Parking', 'Food & Drinks', 'Wheelchair Access', 'Party Rooms', 'VR Stations'],
+    'amenities' => ['WiFi', 'Parking', 'Food & Drinks', 'Wheelchair Access', 'Party Spaces'],
     'image' => '../images/locations/location1.png',
     'status' => 'open'
 ];
@@ -44,46 +44,42 @@ $coming_soon = [
 
 <!-- Main Content -->
 <main class="locations-page">
-    <!-- Hero Section -->
+    <!-- Hero Section with Bakersfield Map Overview -->
     <section class="hero-locations">
+        <div class="hero-map-background">
+            <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d206223.6071524!2d-119.2189!3d35.3733!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80ea6bc7d3db2559%3A0x225f6071da32e288!2sBakersfield%2C%20CA!5e0!3m2!1sen!2sus!4v1620000000000!5m2!1sen!2sus"
+                width="100%"
+                height="100%"
+                style="border:0;"
+                allowfullscreen=""
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+        </div>
         <div class="hero-overlay"></div>
         <div class="container">
             <h1>Our Locations</h1>
             <p>Find your nearest gaming destination in Kern County</p>
             <div class="hero-actions">
-                <a href="#map-section" class="btn btn-primary">📍 View on Map</a>
-                <a href="#contact-section" class="btn btn-secondary">📞 Get in Touch</a>
+                <a href="#location-details" class="btn btn-primary">View Location Details</a>
+                <a href="#contact-section" class="btn btn-secondary">Get in Touch</a>
             </div>
         </div>
     </section>
 
-    <!-- Interactive Map Section -->
-    <section id="map-section" class="map-section">
-        <div class="container">
-            <h2>Find Us on the Map</h2>
-            <div class="map-container">
-                <div id="google-map" class="interactive-map"></div>
-                <div class="map-controls">
-                    <button class="btn-map-control" onclick="getDirections()">
-                        🧭 Get Directions
-                    </button>
-                    <button class="btn-map-control" onclick="shareLocation()">
-                        🔗 Share Location
-                    </button>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Main Location Section -->
-    <section class="location-details-section">
+    <!-- Main Location Section with Map Background -->
+    <section id="location-details" class="location-details-section">
+        <!-- Map Background Overlay -->
+        <div id="google-map" class="map-background"></div>
+        <div class="map-overlay-gradient"></div>
         <div class="container">
             <div class="location-layout">
                 <!-- Main Location Card -->
                 <div class="main-location-card">
                     <div class="location-card-header">
-                        <div class="status-badge status-open">
-                            <span class="status-dot"></span> Open Now
+                        <div class="status-badge">
+                            <span class="status-dot"></span> <span id="header-status">Checking...</span>
                         </div>
                         <button class="btn-share" onclick="shareLocation()">
                             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -140,14 +136,8 @@ $coming_soon = [
                                     <a href="tel:<?php echo $current_location['phone_link']; ?>" class="contact-btn">
                                         📱 Call Now
                                     </a>
-                                    <a href="sms:<?php echo $current_location['phone_link']; ?>" class="contact-btn">
-                                        💬 Text Us
-                                    </a>
                                     <a href="<?php echo DISCORD_URL; ?>" target="_blank" class="contact-btn">
                                         💭 Discord
-                                    </a>
-                                    <a href="<?php echo FACEBOOK_URL; ?>" target="_blank" class="contact-btn">
-                                        👥 Facebook
                                     </a>
                                 </div>
                             </div>
@@ -175,11 +165,11 @@ $coming_soon = [
 
                         <div class="planner-section">
                             <div class="planner-label">Current Status</div>
-                            <div class="status-indicator status-open">
+                            <div class="status-indicator">
                                 <span class="status-dot"></span>
-                                <span id="location-status">Open Now</span>
+                                <span id="location-status">Checking...</span>
                             </div>
-                            <div class="status-detail" id="status-detail">Closes at 11:00 PM</div>
+                            <div class="status-detail" id="status-detail">Loading hours...</div>
                         </div>
 
                         <div class="planner-section">
@@ -289,18 +279,6 @@ $coming_soon = [
                         <li>Route 22 - Golden State Highway</li>
                         <li>Stop: 0.2 miles away</li>
                         <li><a href="https://getbus.org/" target="_blank">View GET Bus Schedule →</a></li>
-                    </ul>
-                </div>
-
-                <!-- Bike & Walk -->
-                <div class="transit-card">
-                    <div class="transit-icon">🚲</div>
-                    <h3>Bike & Walk</h3>
-                    <p><strong>Bike-friendly location</strong></p>
-                    <ul>
-                        <li>Bike racks available</li>
-                        <li>Sidewalks from nearby areas</li>
-                        <li>Safe pedestrian access</li>
                     </ul>
                 </div>
 
