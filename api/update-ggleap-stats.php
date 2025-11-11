@@ -226,21 +226,28 @@ function fetchAllUsers($config, $jwtToken) {
 }
 
 // ============================================
-// FETCH NEW PLAYERS THIS WEEK
+// FETCH NEW PLAYERS LAST 30 DAYS
 // ============================================
 
-function fetchNewPlayersThisWeek($config, $jwtToken) {
-    logMessage("Fetching new players this week...");
+function fetchNewPlayersLast30Days($config, $jwtToken) {
+    logMessage("Fetching new players in last 30 days...");
 
     $uniqueUsers = [];
     $paginationToken = null;
     $page = 0;
 
+    // Calculate date range (last 30 days)
+    $endDate = gmdate('Y-m-d\TH:i:s\Z'); // Now in UTC
+    $startDate = gmdate('Y-m-d\TH:i:s\Z', strtotime('-30 days')); // 30 days ago
+
+    logMessage("Date range: $startDate to $endDate");
+
     do {
         $page++;
         $url = $config['api_base_url'] . '/activity-logs/search';
         $params = [
-            'TimeFrameType' => 'ThisWeek',
+            'Start' => $startDate,
+            'End' => $endDate,
             'Limit' => 500,
             'Actions[]' => 'CreatedUser',
             'GuestOnly' => 'false'
@@ -263,12 +270,14 @@ function fetchNewPlayersThisWeek($config, $jwtToken) {
             }
         }
 
+        logMessage("Page $page: Found " . count($response['Entries']) . " entries (unique users so far: " . count($uniqueUsers) . ")");
+
         $paginationToken = $response['PaginationToken'] ?? null;
 
     } while ($paginationToken);
 
     $count = count($uniqueUsers);
-    logMessage("New players this week: $count");
+    logMessage("New players in last 30 days: $count");
 
     return $count;
 }
@@ -411,8 +420,8 @@ try {
     $users = fetchAllUsers($GGLEAP_CONFIG, $jwtToken);
     $totalUsers = count($users);
 
-    // Step 3: Count new players this week
-    $newPlayersThisWeek = fetchNewPlayersThisWeek($GGLEAP_CONFIG, $jwtToken);
+    // Step 3: Count new players in last 30 days
+    $newPlayersLast30Days = fetchNewPlayersLast30Days($GGLEAP_CONFIG, $jwtToken);
 
     // Step 4: Calculate gaming hours
     $hours = fetchGamingHours($GGLEAP_CONFIG, $jwtToken, $users);
@@ -420,7 +429,7 @@ try {
     // Step 5: Compile stats
     $stats = [
         'totalAccounts' => $totalUsers,
-        'newAccountsToday' => $newPlayersThisWeek, // Using weekly count (adjust label on frontend)
+        'newAccountsLast30Days' => $newPlayersLast30Days,
         'totalHours' => (int)$hours['total_hours'],
         'hoursThisMonth' => (int)$hours['month_hours'],
         'timestamp' => time(),
@@ -439,7 +448,7 @@ try {
 
     logMessage("Stats cached successfully");
     logMessage("Total accounts: {$stats['totalAccounts']}");
-    logMessage("New players this week: {$stats['newAccountsToday']}");
+    logMessage("New players in last 30 days: {$stats['newAccountsLast30Days']}");
     logMessage("Total hours: {$stats['totalHours']}");
     logMessage("Hours this month: {$stats['hoursThisMonth']}");
 
