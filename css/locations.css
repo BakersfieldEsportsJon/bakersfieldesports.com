@@ -1,8 +1,10 @@
 /**
- * Locations Page Styles
- * Modern, Interactive Location Page
+ * Locations Page Styles - Using Brand Colors
  * Bakersfield eSports Center
  */
+
+/* Import variables for consistency */
+@import url("variables.css");
 
 /* ============================================
    HERO SECTION
@@ -10,7 +12,7 @@
 
 .hero-locations {
     position: relative;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: var(--dark-bg);
     min-height: 400px;
     display: flex;
     align-items: center;
@@ -27,7 +29,7 @@
     right: 0;
     bottom: 0;
     background: url('../images/locations-hero.jpg') center/cover;
-    opacity: 0.15;
+    opacity: 0.2;
     z-index: 0;
 }
 
@@ -37,7 +39,7 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background: linear-gradient(135deg, rgba(102, 126, 234, 0.9) 0%, rgba(118, 75, 162, 0.9) 100%);
+    background: linear-gradient(135deg, rgba(3, 2, 2, 0.95) 0%, rgba(18, 18, 18, 0.95) 100%);
     z-index: 1;
 }
 
@@ -49,15 +51,15 @@
 
 .hero-locations h1 {
     font-size: 3.5rem;
-    color: white;
+    color: var(--light-color);
     margin-bottom: 20px;
-    text-shadow: 0 2px 10px rgba(0,0,0,0.2);
+    text-shadow: 0 2px 10px rgba(0,0,0,0.5);
     animation: fadeInUp 0.8s ease;
 }
 
 .hero-locations p {
     font-size: 1.3rem;
-    color: rgba(255,255,255,0.95);
+    color: var(--color-text-secondary);
     margin-bottom: 30px;
     animation: fadeInUp 0.8s ease 0.2s backwards;
 }
@@ -70,35 +72,50 @@
     animation: fadeInUp 0.8s ease 0.4s backwards;
 }
 
+.btn-secondary {
+    background-color: transparent;
+    color: var(--light-color);
+    border: 2px solid var(--primary-color);
+    padding: 0.75em 1.5em;
+    border-radius: 5px;
+    transition: all 0.3s;
+}
+
+.btn-secondary:hover {
+    background-color: var(--primary-color);
+    color: #fff;
+    transform: translateY(-2px);
+}
+
 /* ============================================
    INTERACTIVE MAP SECTION
    ============================================ */
 
 .map-section {
     padding: 60px 0;
-    background: #f8f9fa;
+    background: var(--darker-bg);
 }
 
 .map-section h2 {
     text-align: center;
     margin-bottom: 40px;
     font-size: 2.5rem;
-    color: #2d3748;
+    color: var(--light-color);
 }
 
 .map-container {
     position: relative;
-    background: white;
-    border-radius: 12px;
+    background: var(--dark-bg);
+    border-radius: var(--radius-lg);
     overflow: hidden;
-    box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+    box-shadow: var(--shadow-lg);
 }
 
 .interactive-map {
     width: 100%;
     height: 500px;
     border: none;
-    background: #e9ecef;
+    background: var(--darker-bg);
 }
 
 .map-controls {
@@ -112,22 +129,23 @@
 }
 
 .btn-map-control {
-    background: white;
+    background: var(--light-color);
     border: none;
     padding: 12px 20px;
-    border-radius: 8px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-md);
     cursor: pointer;
     font-size: 14px;
     font-weight: 600;
+    color: var(--dark-bg);
     transition: all 0.3s ease;
 }
 
 .btn-map-control:hover {
-    background: #667eea;
-    color: white;
+    background: var(--primary-color);
+    color: var(--light-color);
     transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+    box-shadow: var(--shadow-lg);
 }
 
 /* ============================================
@@ -136,7 +154,7 @@
 
 .location-details-section {
     padding: 80px 0;
-    background: white;
+    background: var(--dark-bg);
 }
 
 .location-layout {
@@ -147,16 +165,18 @@
 
 /* Main Location Card */
 .main-location-card {
-    background: white;
-    border-radius: 16px;
+    background: var(--darker-bg);
+    border-radius: var(--radius-xl);
     overflow: hidden;
-    box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+    box-shadow: var(--shadow-lg);
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    border: 1px solid var(--color-border);
 }
 
 .main-location-card:hover {
     transform: translateY(-8px);
-    box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+    box-shadow: var(--shadow-xl);
+    border-color: var(--primary-color);
 }
 
 .location-card-header {
@@ -164,8 +184,8 @@
     justify-content: space-between;
     align-items: center;
     padding: 20px;
-    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
-    border-bottom: 1px solid #dee2e6;
+    background: var(--dark-bg);
+    border-bottom: 1px solid var(--color-border);
 }
 
 .status-badge {
@@ -173,20 +193,20 @@
     align-items: center;
     gap: 8px;
     padding: 8px 16px;
-    border-radius: 20px;
+    border-radius: var(--radius-full);
     font-size: 14px;
     font-weight: 600;
     animation: pulse 2s ease-in-out infinite;
 }
 
 .status-badge.status-open {
-    background: #d4edda;
-    color: #155724;
+    background: rgba(16, 185, 129, 0.2);
+    color: var(--color-success);
 }
 
 .status-badge.status-closed {
-    background: #f8d7da;
-    color: #721c24;
+    background: rgba(255, 107, 107, 0.2);
+    color: var(--color-error);
 }
 
 .status-dot {
@@ -203,20 +223,20 @@
     align-items: center;
     gap: 8px;
     padding: 8px 16px;
-    background: white;
-    border: 2px solid #e9ecef;
-    border-radius: 8px;
+    background: transparent;
+    border: 2px solid var(--color-border);
+    border-radius: var(--radius-md);
     cursor: pointer;
     font-size: 14px;
     font-weight: 600;
-    color: #495057;
+    color: var(--light-color);
     transition: all 0.3s ease;
 }
 
 .btn-share:hover {
-    background: #667eea;
-    color: white;
-    border-color: #667eea;
+    background: var(--primary-color);
+    color: var(--light-color);
+    border-color: var(--primary-color);
     transform: translateY(-2px);
 }
 
@@ -224,6 +244,7 @@
     position: relative;
     height: 400px;
     overflow: hidden;
+    background: var(--dark-bg);
 }
 
 .location-card-image img {
@@ -255,19 +276,20 @@
 
 .btn-virtual-tour {
     padding: 12px 24px;
-    background: white;
+    background: var(--light-color);
     border: none;
-    border-radius: 8px;
+    border-radius: var(--radius-md);
     font-size: 16px;
     font-weight: 600;
     cursor: pointer;
     transition: all 0.3s ease;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    box-shadow: var(--shadow-md);
+    color: var(--dark-bg);
 }
 
 .btn-virtual-tour:hover {
-    background: #667eea;
-    color: white;
+    background: var(--primary-color);
+    color: var(--light-color);
     transform: translateY(-2px);
 }
 
@@ -277,7 +299,7 @@
 
 .location-card-body h2 {
     font-size: 2rem;
-    color: #2d3748;
+    color: var(--light-color);
     margin-bottom: 30px;
 }
 
@@ -285,7 +307,7 @@
     display: flex;
     gap: 20px;
     padding: 25px 0;
-    border-bottom: 1px solid #e9ecef;
+    border-bottom: 1px solid var(--color-border);
 }
 
 .info-block:last-child {
@@ -304,12 +326,12 @@
 .info-content strong {
     display: block;
     font-size: 1.1rem;
-    color: #2d3748;
+    color: var(--light-color);
     margin-bottom: 12px;
 }
 
 .info-content p {
-    color: #4a5568;
+    color: var(--color-text-secondary);
     margin: 8px 0;
     line-height: 1.6;
 }
@@ -317,14 +339,14 @@
 .link-directions {
     display: inline-block;
     margin-top: 8px;
-    color: #667eea;
+    color: var(--primary-color);
     font-weight: 600;
     text-decoration: none;
     transition: all 0.3s ease;
 }
 
 .link-directions:hover {
-    color: #764ba2;
+    color: var(--primary-hover);
     transform: translateX(5px);
 }
 
@@ -332,7 +354,7 @@
     display: inline-block;
     min-width: 100px;
     font-weight: 600;
-    color: #2d3748;
+    color: var(--light-color);
 }
 
 /* Contact Methods */
@@ -348,22 +370,22 @@
     align-items: center;
     justify-content: center;
     padding: 12px 16px;
-    background: #f8f9fa;
-    border: 2px solid #e9ecef;
-    border-radius: 8px;
+    background: var(--dark-bg);
+    border: 2px solid var(--color-border);
+    border-radius: var(--radius-md);
     text-decoration: none;
-    color: #495057;
+    color: var(--light-color);
     font-weight: 600;
     font-size: 14px;
     transition: all 0.3s ease;
 }
 
 .contact-btn:hover {
-    background: #667eea;
-    color: white;
-    border-color: #667eea;
+    background: var(--primary-color);
+    color: var(--light-color);
+    border-color: var(--primary-color);
     transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+    box-shadow: var(--shadow-md);
 }
 
 /* Amenities */
@@ -377,9 +399,9 @@
 .amenity-tag {
     display: inline-block;
     padding: 8px 16px;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    color: white;
-    border-radius: 20px;
+    background: var(--primary-color);
+    color: var(--light-color);
+    border-radius: var(--radius-full);
     font-size: 13px;
     font-weight: 600;
 }
@@ -395,23 +417,23 @@
 }
 
 .planner-card {
-    background: white;
-    border-radius: 16px;
+    background: var(--darker-bg);
+    border-radius: var(--radius-xl);
     padding: 30px;
-    box-shadow: 0 10px 40px rgba(0,0,0,0.08);
-    border: 2px solid #e9ecef;
+    box-shadow: var(--shadow-lg);
+    border: 1px solid var(--color-border);
 }
 
 .planner-card h3 {
     font-size: 1.5rem;
-    color: #2d3748;
+    color: var(--light-color);
     margin-bottom: 25px;
     text-align: center;
 }
 
 .planner-section {
     padding: 20px 0;
-    border-bottom: 1px solid #e9ecef;
+    border-bottom: 1px solid var(--color-border);
 }
 
 .planner-section:last-child {
@@ -421,7 +443,7 @@
 .planner-label {
     font-size: 13px;
     font-weight: 600;
-    color: #718096;
+    color: var(--color-text-secondary);
     text-transform: uppercase;
     letter-spacing: 0.5px;
     margin-bottom: 12px;
@@ -432,15 +454,15 @@
     align-items: center;
     gap: 10px;
     padding: 12px;
-    background: #f8f9fa;
-    border-radius: 8px;
+    background: var(--dark-bg);
+    border-radius: var(--radius-md);
     font-weight: 600;
     margin-bottom: 8px;
 }
 
 .status-detail {
     font-size: 14px;
-    color: #718096;
+    color: var(--color-text-secondary);
     padding-left: 22px;
 }
 
@@ -453,31 +475,31 @@
 .wait-time-value {
     font-size: 1.5rem;
     font-weight: 700;
-    color: #2d3748;
+    color: var(--light-color);
 }
 
 .traffic-level {
     display: inline-block;
     padding: 6px 12px;
-    border-radius: 6px;
+    border-radius: var(--radius-sm);
     font-size: 12px;
     font-weight: 600;
     width: fit-content;
 }
 
 .traffic-low {
-    background: #d4edda;
-    color: #155724;
+    background: rgba(16, 185, 129, 0.2);
+    color: var(--color-success);
 }
 
 .traffic-medium {
-    background: #fff3cd;
-    color: #856404;
+    background: rgba(236, 25, 77, 0.2);
+    color: #ffaa00;
 }
 
 .traffic-high {
-    background: #f8d7da;
-    color: #721c24;
+    background: rgba(255, 107, 107, 0.2);
+    color: var(--color-error);
 }
 
 .quick-actions {
@@ -489,24 +511,25 @@
 .action-btn {
     display: block;
     padding: 12px;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    color: white;
+    background: var(--primary-color);
+    color: var(--light-color);
     text-decoration: none;
     text-align: center;
-    border-radius: 8px;
+    border-radius: var(--radius-md);
     font-weight: 600;
     transition: all 0.3s ease;
 }
 
 .action-btn:hover {
+    background: var(--primary-hover);
     transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+    box-shadow: var(--shadow-md);
 }
 
 .best-times p {
     margin: 12px 0;
     font-size: 14px;
-    color: #4a5568;
+    color: var(--color-text-secondary);
     line-height: 1.6;
 }
 
@@ -516,8 +539,7 @@
 
 .virtual-tour-section {
     padding: 80px 0;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    color: white;
+    background: var(--darker-bg);
 }
 
 .section-header {
@@ -528,11 +550,12 @@
 .section-header h2 {
     font-size: 2.5rem;
     margin-bottom: 15px;
+    color: var(--light-color);
 }
 
 .section-header p {
     font-size: 1.2rem;
-    opacity: 0.95;
+    color: var(--color-text-secondary);
 }
 
 .virtual-tour-container {
@@ -541,12 +564,11 @@
 }
 
 .tour-placeholder {
-    background: rgba(255,255,255,0.1);
-    backdrop-filter: blur(10px);
-    border-radius: 16px;
+    background: var(--dark-bg);
+    border-radius: var(--radius-xl);
     padding: 60px 40px;
     text-align: center;
-    border: 2px solid rgba(255,255,255,0.2);
+    border: 2px solid var(--color-border);
 }
 
 .tour-icon {
@@ -557,17 +579,19 @@
 .tour-placeholder h3 {
     font-size: 2rem;
     margin-bottom: 15px;
+    color: var(--light-color);
 }
 
 .tour-placeholder p {
     font-size: 1.1rem;
     margin: 15px 0;
-    opacity: 0.9;
+    color: var(--color-text-secondary);
 }
 
 .tour-note {
     font-size: 0.9rem;
     font-style: italic;
+    color: var(--color-text-secondary);
     opacity: 0.7;
     margin-top: 20px;
 }
@@ -578,7 +602,7 @@
 
 .location-events-section {
     padding: 80px 0;
-    background: #f8f9fa;
+    background: var(--dark-bg);
 }
 
 .events-feed {
@@ -590,13 +614,14 @@
 
 .events-loading {
     text-align: center;
+    color: var(--color-text-secondary);
 }
 
 .loading-spinner {
     width: 50px;
     height: 50px;
-    border: 4px solid #e9ecef;
-    border-top: 4px solid #667eea;
+    border: 4px solid var(--color-border);
+    border-top: 4px solid var(--primary-color);
     border-radius: 50%;
     animation: spin 1s linear infinite;
     margin: 0 auto 20px;
@@ -607,19 +632,64 @@
     margin-top: 40px;
 }
 
+.events-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.event-card {
+    background: var(--darker-bg);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    padding: 20px;
+    transition: all 0.3s ease;
+}
+
+.event-card:hover {
+    border-color: var(--primary-color);
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-lg);
+}
+
+.event-date {
+    color: var(--primary-color);
+    font-weight: 600;
+    font-size: 0.9rem;
+    margin-bottom: 10px;
+}
+
+.event-card h4 {
+    color: var(--light-color);
+    margin-bottom: 10px;
+}
+
+.event-card p {
+    color: var(--color-text-secondary);
+    font-size: 0.9rem;
+    margin-bottom: 15px;
+}
+
+.no-events,
+.events-error {
+    text-align: center;
+    padding: 40px;
+    color: var(--color-text-secondary);
+}
+
 /* ============================================
    TRANSIT & PARKING SECTION
    ============================================ */
 
 .transit-parking-section {
     padding: 80px 0;
-    background: white;
+    background: var(--darker-bg);
 }
 
 .transit-parking-section h2 {
     text-align: center;
     font-size: 2.5rem;
-    color: #2d3748;
+    color: var(--light-color);
     margin-bottom: 50px;
 }
 
@@ -630,17 +700,17 @@
 }
 
 .transit-card {
-    background: white;
-    border: 2px solid #e9ecef;
-    border-radius: 12px;
+    background: var(--dark-bg);
+    border: 2px solid var(--color-border);
+    border-radius: var(--radius-lg);
     padding: 30px;
     transition: all 0.3s ease;
 }
 
 .transit-card:hover {
-    border-color: #667eea;
+    border-color: var(--primary-color);
     transform: translateY(-5px);
-    box-shadow: 0 10px 30px rgba(102, 126, 234, 0.15);
+    box-shadow: var(--shadow-lg);
 }
 
 .transit-icon {
@@ -650,8 +720,12 @@
 
 .transit-card h3 {
     font-size: 1.3rem;
-    color: #2d3748;
+    color: var(--light-color);
     margin-bottom: 10px;
+}
+
+.transit-card p {
+    color: var(--color-text-secondary);
 }
 
 .transit-card ul {
@@ -662,8 +736,8 @@
 
 .transit-card li {
     padding: 8px 0;
-    color: #4a5568;
-    border-bottom: 1px solid #e9ecef;
+    color: var(--color-text-secondary);
+    border-bottom: 1px solid var(--color-border);
 }
 
 .transit-card li:last-child {
@@ -671,13 +745,13 @@
 }
 
 .transit-card a {
-    color: #667eea;
+    color: var(--primary-color);
     text-decoration: none;
     font-weight: 600;
 }
 
 .transit-card a:hover {
-    color: #764ba2;
+    color: var(--primary-hover);
 }
 
 /* ============================================
@@ -686,12 +760,11 @@
 
 .coming-soon-section {
     padding: 80px 0;
-    background: linear-gradient(135deg, #2d3748 0%, #1a202c 100%);
-    color: white;
+    background: var(--dark-bg);
 }
 
 .coming-soon-section .section-header {
-    color: white;
+    color: var(--light-color);
 }
 
 .coming-soon-grid {
@@ -704,15 +777,17 @@
 
 .coming-soon-card {
     position: relative;
-    border-radius: 16px;
+    border-radius: var(--radius-xl);
     overflow: hidden;
     aspect-ratio: 4/3;
     transition: all 0.4s ease;
+    border: 2px solid var(--color-border);
 }
 
 .coming-soon-card:hover {
     transform: translateY(-10px) scale(1.02);
-    box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+    box-shadow: var(--shadow-xl);
+    border-color: var(--primary-color);
 }
 
 .coming-soon-card img {
@@ -724,7 +799,7 @@
 .card-overlay {
     position: absolute;
     inset: 0;
-    background: linear-gradient(to bottom, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.8) 100%);
+    background: linear-gradient(to bottom, rgba(3, 2, 2, 0.6) 0%, rgba(3, 2, 2, 0.9) 100%);
     z-index: 1;
 }
 
@@ -745,9 +820,9 @@
     top: 20px;
     right: 20px;
     padding: 8px 16px;
-    background: #fbbf24;
-    color: #78350f;
-    border-radius: 20px;
+    background: var(--primary-color);
+    color: var(--light-color);
+    border-radius: var(--radius-full);
     font-size: 12px;
     font-weight: 700;
     text-transform: uppercase;
@@ -756,17 +831,18 @@
 .card-content h3 {
     font-size: 1.8rem;
     margin-bottom: 10px;
-    color: white;
+    color: var(--light-color);
 }
 
 .location-area {
     font-size: 1rem;
-    opacity: 0.9;
+    color: var(--color-text-secondary);
     margin-bottom: 8px;
 }
 
 .location-eta {
     font-size: 0.9rem;
+    color: var(--color-text-secondary);
     opacity: 0.7;
     margin-bottom: 20px;
 }
@@ -774,17 +850,17 @@
 .btn-outline {
     padding: 12px 24px;
     background: transparent;
-    border: 2px solid white;
-    color: white;
-    border-radius: 8px;
+    border: 2px solid var(--light-color);
+    color: var(--light-color);
+    border-radius: var(--radius-md);
     font-weight: 600;
     cursor: pointer;
     transition: all 0.3s ease;
 }
 
 .btn-outline:hover {
-    background: white;
-    color: #2d3748;
+    background: var(--primary-color);
+    border-color: var(--primary-color);
 }
 
 /* ============================================
@@ -797,11 +873,11 @@
     bottom: 0;
     left: 0;
     right: 0;
-    background: white;
-    border-top: 2px solid #e9ecef;
+    background: var(--darker-bg);
+    border-top: 2px solid var(--color-border);
     padding: 10px;
-    z-index: 1000;
-    box-shadow: 0 -4px 20px rgba(0,0,0,0.1);
+    z-index: var(--z-nav);
+    box-shadow: 0 -4px 20px rgba(0,0,0,0.3);
 }
 
 .mobile-action {
@@ -810,12 +886,16 @@
     align-items: center;
     justify-content: center;
     text-decoration: none;
-    color: #4a5568;
+    color: var(--light-color);
     transition: all 0.3s ease;
 }
 
 .mobile-action:active {
     transform: scale(0.95);
+}
+
+.mobile-action:hover {
+    color: var(--primary-color);
 }
 
 .action-icon {
@@ -975,5 +1055,10 @@
     .virtual-tour-section,
     .coming-soon-section {
         display: none !important;
+    }
+
+    .main-location-card {
+        box-shadow: none !important;
+        border: 1px solid #ccc !important;
     }
 }
