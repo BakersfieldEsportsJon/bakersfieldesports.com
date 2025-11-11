@@ -130,7 +130,7 @@ require_once __DIR__ . '/../admin/includes/db.php';
                 <!-- Navigation Menu -->
                 <ul class="nav-menu" id="nav-menu">
                     <li><a href="../index.html">Home</a></li>
-                    <li><a href="../locations/index.html">Locations</a></li>
+                    <li><a href="../locations/">Locations</a></li>
                     <li><a class="active" href="index.php">Events</a></li>
                     <li><a href="../rates-parties/index.html">Rates &amp; Parties</a></li>
                     <li><a href="../partnerships/index.html">Partnerships</a></li>
