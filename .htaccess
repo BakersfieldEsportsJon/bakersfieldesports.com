@@ -1,7 +1,7 @@
-# Make PHP the homepage and stop listings
+# Make HTML the homepage and stop listings
 Options -Indexes
 Options -MultiViews
-DirectoryIndex index.html
+DirectoryIndex index.html index.php
 
 RewriteEngine On
 # Bare root hits index.php (no listing)
