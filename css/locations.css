@@ -7,6 +7,75 @@
 @import url("variables.css");
 
 /* ============================================
+   UNIFIED BUTTON STYLES
+   ============================================ */
+
+/* Base button styles */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 14px 28px;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 1.5;
+    border-radius: var(--radius-md);
+    transition: all 0.3s ease;
+    text-decoration: none;
+    cursor: pointer;
+    min-height: 48px;
+    box-sizing: border-box;
+    border: 2px solid transparent;
+}
+
+/* Primary button */
+.btn-primary,
+button.btn-primary {
+    background: var(--primary-color);
+    color: var(--light-color);
+    border-color: var(--primary-color);
+}
+
+.btn-primary:hover,
+button.btn-primary:hover {
+    background: var(--primary-hover);
+    border-color: var(--primary-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(236, 25, 77, 0.4);
+}
+
+/* Secondary button */
+.btn-secondary,
+button.btn-secondary {
+    background-color: transparent;
+    color: var(--light-color);
+    border-color: var(--primary-color);
+}
+
+.btn-secondary:hover,
+button.btn-secondary:hover {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(236, 25, 77, 0.3);
+}
+
+/* Outline button */
+.btn-outline,
+button.btn-outline {
+    background: transparent;
+    border: 2px solid var(--light-color);
+    color: var(--light-color);
+}
+
+.btn-outline:hover,
+button.btn-outline:hover {
+    background: var(--primary-color);
+    border-color: var(--primary-color);
+    transform: translateY(-2px);
+}
+
+/* ============================================
    HERO SECTION
    ============================================ */
 
@@ -75,50 +144,6 @@
     justify-content: center;
     flex-wrap: wrap;
     animation: fadeInUp 0.8s ease 0.4s backwards;
-}
-
-.hero-actions .btn,
-.hero-actions .btn-primary,
-.hero-actions .btn-secondary {
-    padding: 15px 32px;
-    font-size: 16px;
-    font-weight: 600;
-    line-height: 1.5;
-    border-radius: 8px;
-    transition: all 0.3s ease;
-    text-decoration: none;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    min-height: 52px;
-    box-sizing: border-box;
-}
-
-.hero-actions .btn-primary {
-    background: var(--primary-color);
-    color: var(--light-color);
-    border: 2px solid var(--primary-color);
-}
-
-.hero-actions .btn-primary:hover {
-    background: var(--primary-hover);
-    border-color: var(--primary-hover);
-    transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(236, 25, 77, 0.4);
-}
-
-.hero-actions .btn-secondary {
-    background-color: transparent;
-    color: var(--light-color);
-    border: 2px solid var(--primary-color);
-}
-
-.hero-actions .btn-secondary:hover {
-    background-color: var(--primary-color);
-    border-color: var(--primary-color);
-    transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(236, 25, 77, 0.3);
 }
 
 /* ============================================
@@ -295,21 +320,28 @@
 }
 
 .btn-virtual-tour {
-    padding: 12px 24px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 14px 28px;
     background: var(--light-color);
-    border: none;
+    border: 2px solid var(--light-color);
     border-radius: var(--radius-md);
     font-size: 16px;
     font-weight: 600;
+    line-height: 1.5;
     cursor: pointer;
     transition: all 0.3s ease;
     box-shadow: var(--shadow-md);
     color: var(--dark-bg);
+    min-height: 48px;
+    box-sizing: border-box;
 }
 
 .btn-virtual-tour:hover {
     background: var(--primary-color);
     color: var(--light-color);
+    border-color: var(--primary-color);
     transform: translateY(-2px);
 }
 
@@ -397,23 +429,27 @@
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    padding: 14px 24px;
+    padding: 14px 28px;
     background: var(--primary-color);
-    border: none;
+    border: 2px solid var(--primary-color);
     border-radius: var(--radius-md);
     text-decoration: none;
     color: var(--light-color);
     font-weight: 600;
-    font-size: 15px;
+    font-size: 16px;
+    line-height: 1.5;
     transition: all 0.3s ease;
     flex: 1;
     min-width: 140px;
+    min-height: 48px;
+    box-sizing: border-box;
 }
 
 .contact-btn:hover {
     background: var(--primary-hover);
-    transform: scale(1.02);
-    box-shadow: var(--shadow-md);
+    border-color: var(--primary-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(236, 25, 77, 0.4);
 }
 
 /* Amenities */
@@ -561,22 +597,29 @@
 }
 
 .action-btn {
-    display: block;
-    padding: 14px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 14px 28px;
     background: var(--primary-color);
+    border: 2px solid var(--primary-color);
     color: var(--light-color);
     text-decoration: none;
     text-align: center;
     border-radius: var(--radius-md);
     font-weight: 600;
-    font-size: 15px;
+    font-size: 16px;
+    line-height: 1.5;
     transition: all 0.3s ease;
+    min-height: 48px;
+    box-sizing: border-box;
 }
 
 .action-btn:hover {
     background: var(--primary-hover);
-    transform: scale(1.02);
-    box-shadow: var(--shadow-md);
+    border-color: var(--primary-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(236, 25, 77, 0.4);
 }
 
 .best-times p {
@@ -697,11 +740,6 @@
 .events-cta {
     text-align: center;
     margin-top: 40px;
-}
-
-.events-cta .btn {
-    padding: 14px 32px;
-    font-size: 16px;
 }
 
 .events-grid {
@@ -935,21 +973,7 @@
     margin-bottom: 20px;
 }
 
-.btn-outline {
-    padding: 12px 24px;
-    background: transparent;
-    border: 2px solid var(--light-color);
-    color: var(--light-color);
-    border-radius: var(--radius-md);
-    font-weight: 600;
-    cursor: pointer;
-    transition: all 0.3s ease;
-}
-
-.btn-outline:hover {
-    background: var(--primary-color);
-    border-color: var(--primary-color);
-}
+/* Note: .btn-outline is now defined in the unified button styles section at the top of this file */
 
 /* ============================================
    MOBILE QUICK ACTIONS BAR

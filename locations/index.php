@@ -41,6 +41,7 @@ $coming_soon = [
 
 <!-- Custom Location Page Styles -->
 <link rel="stylesheet" href="../css/locations.css">
+<link rel="stylesheet" href="../css/notification-modal.css">
 
 <!-- Main Content -->
 <main class="locations-page">
@@ -71,7 +72,17 @@ $coming_soon = [
     <!-- Main Location Section with Map Background -->
     <section id="location-details" class="location-details-section">
         <!-- Map Background Overlay -->
-        <div id="google-map" class="map-background"></div>
+        <div class="map-background">
+            <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3284.8767890!2d-119.0134!3d35.3917!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80ea6bc7d3db2559%3A0x225f6071da32e288!2s7104%20Golden%20State%20Hwy%2C%20Bakersfield%2C%20CA%2093308!5e0!3m2!1sen!2sus!4v1620000000000!5m2!1sen!2sus"
+                width="100%"
+                height="100%"
+                style="border:0;"
+                allowfullscreen=""
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+        </div>
         <div class="map-overlay-gradient"></div>
         <div class="container">
             <div class="location-layout">
@@ -95,11 +106,7 @@ $coming_soon = [
 
                     <div class="location-card-image">
                         <img src="<?php echo $current_location['image']; ?>" alt="<?php echo $current_location['name']; ?>">
-                        <div class="image-overlay">
-                            <button class="btn-virtual-tour" onclick="openVirtualTour()">
-                                🎥 Take Virtual Tour
-                            </button>
-                        </div>
+                        <!-- Virtual tour button hidden for now - planned for future update -->
                     </div>
 
                     <div class="location-card-body">
@@ -208,7 +215,8 @@ $coming_soon = [
         </div>
     </section>
 
-    <!-- 360 Virtual Tour Section -->
+    <!-- 360 Virtual Tour Section - Hidden for now, planned for future update -->
+    <!--
     <section class="virtual-tour-section">
         <div class="container">
             <div class="section-header">
@@ -229,6 +237,7 @@ $coming_soon = [
             </div>
         </div>
     </section>
+    -->
 
     <!-- Events at This Location -->
     <section class="location-events-section">
@@ -347,6 +356,103 @@ $coming_soon = [
     </a>
 </div>
 
+<!-- Notification Modal -->
+<div class="notification-modal-overlay" id="notificationModal">
+    <div class="notification-modal">
+        <div class="notification-modal-header">
+            <h3>Get Notified When We Open!</h3>
+            <p>Be the first to know when <span id="modalLocationName"></span> opens</p>
+            <button class="notification-modal-close" onclick="closeNotificationModal()">×</button>
+        </div>
+        <div class="notification-modal-body">
+            <!-- Success/Error Messages -->
+            <div class="notification-message" id="notificationMessage">
+                <strong id="messageTitle"></strong>
+                <span id="messageText"></span>
+            </div>
+
+            <form class="notification-form" id="notificationForm" onsubmit="submitNotification(event)">
+                <!-- Name Field (Required) -->
+                <div class="form-group">
+                    <label for="notify-name">
+                        Full Name <span class="required">*</span>
+                    </label>
+                    <input
+                        type="text"
+                        id="notify-name"
+                        name="name"
+                        class="form-input"
+                        placeholder="Enter your full name"
+                        required
+                    >
+                    <span class="form-error">Please enter your name</span>
+                </div>
+
+                <!-- Email Field (Required) -->
+                <div class="form-group">
+                    <label for="notify-email">
+                        Email Address <span class="required">*</span>
+                    </label>
+                    <input
+                        type="email"
+                        id="notify-email"
+                        name="email"
+                        class="form-input"
+                        placeholder="your.email@example.com"
+                        required
+                    >
+                    <span class="form-error">Please enter a valid email address</span>
+                </div>
+
+                <!-- Phone Field (Optional) -->
+                <div class="form-group">
+                    <label for="notify-phone">
+                        Phone Number <span class="optional">(optional)</span>
+                    </label>
+                    <input
+                        type="tel"
+                        id="notify-phone"
+                        name="phone"
+                        class="form-input"
+                        placeholder="(555) 123-4567"
+                    >
+                    <span class="form-error">Please enter a valid phone number</span>
+                </div>
+
+                <!-- Location Preference (Required) -->
+                <div class="form-group">
+                    <label>
+                        Interested Location <span class="required">*</span>
+                    </label>
+                    <div class="location-options">
+                        <?php foreach ($coming_soon as $location): ?>
+                        <label class="location-option">
+                            <input
+                                type="radio"
+                                name="location"
+                                value="<?php echo htmlspecialchars($location['name']); ?>"
+                                required
+                            >
+                            <div class="location-option-label">
+                                <strong><?php echo htmlspecialchars($location['name']); ?></strong>
+                                <span><?php echo htmlspecialchars($location['area']); ?></span>
+                            </div>
+                        </label>
+                        <?php endforeach; ?>
+                    </div>
+                    <span class="form-error">Please select a location</span>
+                </div>
+
+                <!-- Submit Button -->
+                <button type="submit" class="notification-submit" id="submitBtn">
+                    <span class="spinner"></span>
+                    <span class="btn-text">Notify Me!</span>
+                </button>
+            </form>
+        </div>
+    </div>
+</div>
+
 <!-- Location Page JavaScript -->
 <script>
 // Location data for JavaScript
@@ -359,7 +465,7 @@ const locationData = {
     phoneLink: '<?php echo $current_location['phone_link']; ?>'
 };
 </script>
-<script src="https://maps.googleapis.com/maps/api/js?key=YOUR_GOOGLE_MAPS_API_KEY&callback=initMap" async defer></script>
 <script src="../js/locations.js"></script>
+<script src="../js/notification-system.js"></script>
 
 <?php require_once '../includes/footer-content.php'; ?>
